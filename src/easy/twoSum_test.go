@@ -17,10 +17,6 @@ import "testing"
 
 func twoSum(nums []int, target int) []int {
 	var indexs []int
-	//nmap := make(map[int]int, 0)
-	//for k, v := range nums {
-	//	nmap[k] = v
-	//}
 
 	for i := 0; i < len(nums)-1; i++ {
 		for j := i + 1; j < len(nums); j++ {
