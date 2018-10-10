@@ -5,8 +5,6 @@ import (
 	"testing"
 )
 
-var Arr = []int{12, 84, 5, 63, 37, 9, 56, 1399}
-
 //冒泡排序，向后移动，从小到大排序,其思想为相邻两个数进行比较，将较大的滞后，时间复杂度O(N^2
 func BubbleSort(array []int) []int {
 	//fmt.Println("befor sort arr:", arr)
