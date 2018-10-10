@@ -1,8 +1,8 @@
-package main
+package list
 
 import (
-	"fmt"
 	"errors"
+	"fmt"
 )
 
 //定义数据类型
@@ -131,7 +131,7 @@ func (h *HeadLinkNode) Get(index int) *linkNode {
 func main() {
 	l := New()
 	l.Add(Element("zhangsan"))
-	fmt.Println("wz:",l.Search(Element("zhangsan")))
+	fmt.Println("wz:", l.Search(Element("zhangsan")))
 	l.Remove(1)
 	fmt.Println(l.Len())
 	l.Add(Element("zhangsan"))
@@ -143,6 +143,5 @@ func main() {
 	fmt.Println(l.Search(Element("zhangsan")))
 	fmt.Println(l.Search(Element("wangwu")))
 	fmt.Println(l.Get(l.Len()))
-	
-	
+
 }

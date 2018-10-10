@@ -1,4 +1,4 @@
-package main
+package list
 
 //线性表中的链式存储结构
 //第一个节点为头节点，并不真实保存数据，头节点基本代表了整个链表
@@ -49,10 +49,10 @@ func (head *LinkNode) Traverse() {
 }
 
 //删除链表中第i个节点，复杂度为o(n)
-func (head *LinkNode) Delete(i int) bool  {
+func (head *LinkNode) Delete(i int) bool {
 	p := head
 	j := 1
-	for (nil != p && j < i) {
+	for nil != p && j < i {
 		p = p.Next
 		j++
 	}
@@ -60,22 +60,22 @@ func (head *LinkNode) Delete(i int) bool  {
 		fmt.Println("pls check i:", i)
 		return false
 	}
-	
+
 	p.Next = p.Next.Next
 	return true
 }
 
 // 获取链表中的第i个元素，复杂度为o(n)
-func (head *LinkNode) Get(i int) Elem  {
+func (head *LinkNode) Get(i int) Elem {
 	p := head.Next
-	for j:= 1; j< i ;j++  {
+	for j := 1; j < i; j++ {
 		if nil == p {
 			//表示返回错误
 			return -100001
 		}
-		p=p.Next
+		p = p.Next
 	}
-	
+
 	return p.Data
 }
 
@@ -88,11 +88,10 @@ func main() {
 	linkedList.Insert(1, 99999)
 	linkedList.Insert(1, 999999)
 	linkedList.Traverse()
-	
+
 	linkedList.Delete(4)
 	linkedList.Traverse()
-	
-	
+
 	e := linkedList.Get(4)
 	fmt.Println(e)
 }

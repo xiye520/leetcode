@@ -7,7 +7,6 @@ import (
 
 //1.冒泡排序，向后移动，从小到大排序,其思想为相邻两个数进行比较，将较大的滞后，时间复杂度O(N^2
 func BubbleSort(array []int) []int {
-	//fmt.Println("befor sort arr:", arr)
 	for i := 0; i < len(array); i++ {
 		for j := 0; j < len(array)-1-i; j++ {
 			if array[j] > array[j+1] {
@@ -15,14 +14,12 @@ func BubbleSort(array []int) []int {
 			}
 		}
 	}
-	//fmt.Println("after sort arr:", arr)
 
 	return array
 }
 
 //2.选择排序，从后面找个最小的放在前面的位置，从小到大排序,时间复杂度O(N^2)
 func SelectSort(array []int) []int {
-
 	for i := 0; i < len(array)-1; i++ {
 		for j := i + 1; j < len(array); j++ {
 			if array[i] > array[j] {
