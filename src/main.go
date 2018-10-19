@@ -18,4 +18,5 @@ func Format(str string) {
 	}
 
 	fmt.Println(decodeStr)
+	fmt.Println("hello leetcode!")
 }
