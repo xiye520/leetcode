@@ -147,12 +147,14 @@ func TestIntrusiveList(t *testing.T) {
 	}
 }
 
-// output
-// e: &{List:{prev:<nil> next:0xc4200789c0} data:1}
-// data: 1
-// e: &{List:{prev:0xc420078960 next:0xc420078990} data:2}
-// data: 2
-// e: &{List:{prev:0xc4200789c0 next:0xc420078930} data:3}
-// data: 3
-// e: &{List:{prev:0xc420078990 next:<nil>} data:4}
-// data: 4
+//=== RUN   TestIntrusiveList
+//e: &{List:{prev:<nil> next:0xc04205c450} data:1}
+//data: 1
+//e: &{List:{prev:0xc04205c3f0 next:0xc04205c420} data:2}
+//data: 2
+//e: &{List:{prev:0xc04205c450 next:0xc04205c3c0} data:3}
+//data: 3
+//e: &{List:{prev:0xc04205c420 next:<nil>} data:4}
+//data: 4
+//--- PASS: TestIntrusiveList (0.00s)
+//PASS
