@@ -80,7 +80,6 @@ func ThreeSum3(nums []int) [][]int {
 		if i > 0 && nums[i] == nums[i-1] { // 去重
 			continue
 		}
-
 		for j < k {
 			sum := nums[i] + nums[j] + nums[k]
 			if sum < 0 {
@@ -93,7 +92,7 @@ func ThreeSum3(nums []int) [][]int {
 				for j < k && nums[k] == nums[k+1] { //去重
 					k--
 				}
-			} else {
+			} else { //找到符合要求的三个数
 				r = append(r, []int{nums[i], nums[j], nums[k]})
 				j++
 				k--
@@ -112,7 +111,8 @@ func ThreeSum3(nums []int) [][]int {
 
 func TestThreeSum3(t *testing.T) {
 	//nums := []int{-1, 0, 1, 2, -1, -4}
-	nums := []int{1, -1, -1, 0}
+	//nums := []int{1, -1, -1, 0}
+	nums := []int{-4, -2, 1, -5, -4, -4, 4, -2, 0, 4, 0, -2, 3, 1, -5, 0}
 	r := ThreeSum3(nums)
 	for _, v := range r {
 		t.Log(v)
