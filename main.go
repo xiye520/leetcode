@@ -1,19 +1,19 @@
-package leetcode
+package main
 
 import (
 	"fmt"
-	"log"
-	"strconv"
+	"math"
 )
 
 func main() {
-	fmt.Println("hello")
+	//sum := 342 + 465
+	//fmt.Println(sum)
+	//fmt.Println(sum / 100)
+	//fmt.Println((sum % 100) / 10)
+	//fmt.Println(sum % 10)
+	//fmt.Println(len(strconv.Itoa(sum)))
 
-	str := "-056546161321615612315"
-	n, err := strconv.Atoi(str)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	log.Printf("str: %s转换为数字后为：%d\n", str, n)
+	//fmt.Println(10 ^ (1 + 1))
+	//fmt.Println(10 ^ 2)
+	fmt.Println(1 * math.Pow10(1+1))
 }
