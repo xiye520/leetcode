@@ -29,13 +29,32 @@ type ListNode struct {
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	n1 := getNodeLen(l1)
-	n2 := getNodeLen(l2)
+	length := func(l *ListNode) (n int) {
+		n = 1
+		for l.Next != nil {
+			n++
+			l = l.Next
+		}
+		return n
+	}
+
+	last := func(l *ListNode) (n *ListNode) {
+		if l.Next == nil {
+			return l
+		}
+
+		for l.Next != nil {
+			n = l.Next
+		}
+
+		return n
+	}
+	n1 := length(l1)
+	n2 := length(l2)
 
 	var a1 int
 	for i := 0; i < n1; i++ {
 		a1 += l1.Val * int(math.Pow10(n1-i-1))
-		l1 = l1.Next
 	}
 	var b1 int
 	for i := 0; i < n2; i++ {
@@ -43,14 +62,38 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		l2 = l2.Next
 	}
 
-	sum := a1 + b1
-	str := strconv.Itoa(sum)
-
-	var r *ListNode
-	setData(r, len(str), str)
+	sum := a1 + b1 //807
+	r := &ListNode{
+		Val:  sum % 10,
+		Next: nil,
+	}
+	for sum/10 > 0 {
+		sum = sum / 10
+		n := last(r)
+		n.Next = &ListNode{
+			Val: sum % 10,
+		}
+	}
 
 	return r
 }
+
+//func (l *ListNode) Length() (n int) {
+//	n = 1
+//	for l.Next != nil {
+//		n++
+//		l = l.Next
+//	}
+//	return n
+//}
+//
+//func (l *ListNode) Last() (n *ListNode) {
+//	for l.Next != nil {
+//		n = l.Next
+//	}
+//
+//	return n
+//}
 
 func setData(l *ListNode, len int, str string) (*ListNode, int, string) {
 	if len == 0 {
@@ -64,15 +107,6 @@ func setData(l *ListNode, len int, str string) (*ListNode, int, string) {
 	}
 
 	return setData(next.Next, len-1, str[1:len])
-}
-
-func getNodeLen(l *ListNode) (n int) {
-	n = 1
-	for l.Next != nil {
-		n++
-		l = l.Next
-	}
-	return n
 }
 
 //func A(l1 *ListNode, l2 *ListNode) *ListNode {
