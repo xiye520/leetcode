@@ -6,17 +6,8 @@ import (
 	"math"
 	"strconv"
 	"strings"
-	"testing"
 	"unicode"
 )
-
-func TestMyAtoi(t *testing.T) {
-	strs := []string{"   -42", "-91283472332", "+", "-", "3.14159", "+1", "+-5", "+5-", "   +0 123", "20000000000000000000", "-   234", "+   234"}
-	for _, str := range strs {
-		n := MyAtoi(str)
-		t.Logf("str: %s转换为数字后为：%d\n", str, n)
-	}
-}
 
 /*
 	8. 字符串转换整数 (atoi)

@@ -1,4 +1,4 @@
-package easy
+package demo
 
 import (
 	"strconv"

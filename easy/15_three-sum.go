@@ -1,9 +1,6 @@
 package easy
 
-import (
-	"log"
-	"testing"
-)
+import "log"
 
 /*
 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？找出所有满足条件且不重复的三元组。
@@ -71,6 +68,7 @@ func sort(nums []int) []int {
 //
 //}
 
+//
 func ThreeSum3(nums []int) [][]int {
 	nums = sort(nums)
 	var r [][]int
@@ -107,18 +105,4 @@ func ThreeSum3(nums []int) [][]int {
 	}
 
 	return r
-}
-
-func TestThreeSum3(t *testing.T) {
-	//nums := []int{-1, 0, 1, 2, -1, -4}
-	//nums := []int{1, -1, -1, 0}
-	nums := []int{-4, -2, 1, -5, -4, -4, 4, -2, 0, 4, 0, -2, 3, 1, -5, 0}
-	r := ThreeSum3(nums)
-	for _, v := range r {
-		t.Log(v)
-	}
-
-	t.Log("---------")
-	t.Log(r)
-
 }

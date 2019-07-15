@@ -1,7 +1,5 @@
 package easy
 
-import "testing"
-
 /*
 给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。
 
@@ -28,15 +26,4 @@ func twoSum(nums []int, target int) []int {
 	}
 
 	return indexs
-}
-
-func TestTwoSum(t *testing.T) {
-	target := 9
-	nums := []int{2, 7, 11, 15}
-
-	indexs := twoSum(nums, target)
-
-	if len(nums) < 2 || nums[indexs[0]]+nums[indexs[1]] != target {
-		t.Error("fails....")
-	}
 }

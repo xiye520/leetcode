@@ -1,4 +1,4 @@
-package xiye
+package demo
 
 import "testing"
 
