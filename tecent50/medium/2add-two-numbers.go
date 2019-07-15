@@ -1,10 +1,5 @@
 package medium
 
-import (
-	"math"
-	"strconv"
-)
-
 /*
 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
 
@@ -29,65 +24,32 @@ type ListNode struct {
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	n1 := getNodeLen(l1)
-	n2 := getNodeLen(l2)
-
-	var a1 int
-	for i := 0; i < n1; i++ {
-		a1 += l1.Val * int(math.Pow10(n1-i-1))
-		l1 = l1.Next
+	head := &ListNode{}
+	p, q := l1, l2
+	curr := head
+	move := 0
+	for p != nil || q != nil {
+		var x, y int
+		if p != nil {
+			x = p.Val
+		}
+		if q != nil {
+			y = q.Val
+		}
+		sum := move + x + y
+		move = sum / 10
+		curr.Next = &ListNode{Val: sum % 10}
+		curr = curr.Next
+		if p != nil {
+			p = p.Next
+		}
+		if q != nil {
+			q = q.Next
+		}
 	}
-	var b1 int
-	for i := 0; i < n2; i++ {
-		b1 += l2.Val * int(math.Pow10(n2-i-1))
-		l2 = l2.Next
+	if move > 0 {
+		curr.Next = &ListNode{Val: move}
 	}
 
-	sum := a1 + b1
-	str := strconv.Itoa(sum)
-
-	var r *ListNode
-	setData(r, len(str), str)
-
-	return r
+	return head.Next
 }
-
-func setData(l *ListNode, len int, str string) (*ListNode, int, string) {
-	if len == 0 {
-		return l, len, str
-	}
-
-	v, _ := strconv.Atoi(str[:1])
-	next := &ListNode{
-		Val:  v,
-		Next: nil,
-	}
-
-	return setData(next.Next, len-1, str[1:len])
-}
-
-func getNodeLen(l *ListNode) (n int) {
-	n = 1
-	for l.Next != nil {
-		n++
-		l = l.Next
-	}
-	return n
-}
-
-//func A(l1 *ListNode, l2 *ListNode) *ListNode {
-//	a := 100*l1.Val + 10*l1.Next.Val + l1.Next.Next.Val
-//	b := 100*l2.Val + 10*l2.Next.Val + l2.Next.Next.Val
-//	sum := a + b //807
-//
-//	return &ListNode{
-//		Val: sum % 10,
-//		Next: &ListNode{
-//			Val: (sum % 100) / 10,
-//			Next: &ListNode{
-//				Val: sum / 100,
-//				//Next:nil
-//			},
-//		},
-//	}
-//}
