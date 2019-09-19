@@ -7,7 +7,7 @@ https://blog.csdn.net/MoreWin...
 // i为处理节点,其是从孩子节点向下影响堆。
 // n为堆的节点数
 // 其存在一个前提假设，就是两个孩子都已经是大顶堆
-package demo
+package main
 
 import "fmt"
 
@@ -63,7 +63,8 @@ func HeapSort(list []int) {
 	}
 
 }
-func testHeapSort() {
+
+func main() {
 	var inputList = []int{5, 3, 8, 22, 76, 1, 31, 55}
 	// var inputList = []int{}
 	// inputList = CreateList(inputList, 10)

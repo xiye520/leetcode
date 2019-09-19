@@ -1,4 +1,4 @@
-package demo
+package main
 
 // 2.快排
 

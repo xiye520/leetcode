@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func test3() {
 	a := []int{38, 100, 4, 2, 8, 80, 10}
 	qsort(a, 0, len(a)-1)
 	fmt.Println(a)
