@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // 2.快排
 
 // 左闭右闭[a,b]
@@ -43,4 +45,13 @@ END:
 		QuickSort(list[0:head])
 		QuickSort(list[head+1:])
 	}
+}
+
+func main() {
+	var inputList = []int{5, 3, 8, 22, 76, 1, 31, 55}
+	// var inputList = []int{}
+	// inputList = CreateList(inputList, 10)
+
+	QuickSort(inputList)
+	fmt.Println(inputList)
 }
