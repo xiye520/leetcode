@@ -129,7 +129,7 @@ func myAtoi(str string) int {
 	return int(n)
 }
 
-func myAtoi1(str string) int {
+func myAtoi2(str string) int {
 	//reg := regexp.MustCompile(".+?([0-9]+).+?")
 	//result := reg.FindAllString(str, -1)
 	return 0

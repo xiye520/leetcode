@@ -1,4 +1,4 @@
-package diffcult
+package hard
 
 import "testing"
 
