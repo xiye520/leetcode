@@ -30,3 +30,4 @@ _testmain.go
 *.rar
 !bin/*.exe
 
+/main.go
