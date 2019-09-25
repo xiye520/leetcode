@@ -10,7 +10,7 @@ import "fmt"
 func BinarySearch(s []int, k int) int {
 	lo, hi := 0, len(s)-1
 	for lo <= hi {
-		m := (lo + hi) >> 1
+		m := (lo + hi) / 2
 		if s[m] < k {
 			lo = m + 1
 		} else if s[m] > k {
@@ -25,6 +25,6 @@ func BinarySearch(s []int, k int) int {
 //测试：
 func main() {
 	s := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
-	fmt.Println(BinarySearch(s, 6))
+	fmt.Println(BinarySearch(s, 5))
 
 }

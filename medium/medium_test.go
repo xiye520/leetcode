@@ -45,3 +45,38 @@ func TestThreeSum3(t *testing.T) {
 	t.Log(r)
 
 }
+
+// 34. 在排序数组中查找元素的第一个和最后一个位置
+func Test_searchRange(t *testing.T) {
+	arr := []int{5, 7, 7, 8, 8, 10}
+	res := searchRange(arr, 10)
+	t.Log(res)
+}
+
+// 34. 在排序数组中查找元素的第一个和最后一个位置
+func Test_searchRange2(t *testing.T) {
+	arr := []int{5, 7, 7, 8, 8, 10}
+	{
+		target := 10
+		res := searchRange2(arr, target)
+		t.Log(target, res)
+	}
+
+	{
+		target := 8
+		res := searchRange2(arr, target)
+		t.Log(target, res)
+	}
+
+	{
+		target := 7
+		res := searchRange2(arr, target)
+		t.Log(target, res)
+	}
+
+	{
+		target := 6
+		res := searchRange2(arr, target)
+		t.Log(target, res)
+	}
+}
