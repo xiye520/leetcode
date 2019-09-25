@@ -29,4 +29,4 @@ _testmain.go
 *.log
 *.rar
 !bin/*.exe
-
+/main.go
