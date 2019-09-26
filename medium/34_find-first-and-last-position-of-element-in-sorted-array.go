@@ -29,7 +29,7 @@ func searchRange(nums []int, target int) []int {
 	low := 0
 	high := len(nums) - 1
 	for low < high {
-		mid := (low + high) / 2
+		mid := high + (low-high)/2 // 防止溢出
 		fmt.Println("mid", mid, "value", nums[mid])
 		if nums[mid] == target {
 			//顺着这个mid前后找
@@ -49,7 +49,7 @@ func searchRange(nums []int, target int) []int {
 			return []int{start + 1, end - 1}
 		} else if nums[mid] < target { // 中值小于目标值
 			low = mid + 1
-		} else { // 中值大于目标值
+		} else if nums[mid] > target { // 中值大于目标值
 			high = mid - 1
 		}
 	}
@@ -78,7 +78,7 @@ func searchRange2(nums []int, target int) []int {
 		if l == -1 {
 			break
 		}
-		last = l + 1
+		last += l + 1
 	}
 
 	return []int{first, last}
@@ -93,7 +93,7 @@ func search(nums []int, target int) int {
 			return mid
 		} else if nums[mid] < target {
 			low = mid + 1
-		} else {
+		} else if nums[mid] > target {
 			high = mid - 1
 		}
 	}

@@ -1,6 +1,8 @@
 package medium
 
-import "testing"
+import (
+	"testing"
+)
 
 // 8.字符串转换整数
 func TestMyAtoi(t *testing.T) {
@@ -55,7 +57,7 @@ func Test_searchRange(t *testing.T) {
 
 // 34. 在排序数组中查找元素的第一个和最后一个位置
 func Test_searchRange2(t *testing.T) {
-	arr := []int{5, 7, 7, 8, 8, 10}
+	arr := []int{5, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 10}
 	{
 		target := 10
 		res := searchRange2(arr, target)
@@ -79,4 +81,9 @@ func Test_searchRange2(t *testing.T) {
 		res := searchRange2(arr, target)
 		t.Log(target, res)
 	}
+}
+
+// 92. 反转链表 II
+func Test_reverseBetween(t *testing.T) {
+	sord3()
 }
