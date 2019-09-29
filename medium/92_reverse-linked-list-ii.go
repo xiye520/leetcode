@@ -48,3 +48,20 @@ func reverseBetween(head *ListNode, m int, n int) *ListNode {
 
 	return dump.Next
 }
+
+func reverseList(head *ListNode, m int, n int) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+
+	var prev *ListNode
+	cur := head
+	if cur.Next != nil {
+		cur.Next = prev
+		prev = cur
+		cur = cur.Next
+	}
+
+	return prev
+
+}
