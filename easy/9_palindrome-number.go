@@ -48,3 +48,16 @@ func isPalindrome(x int) bool {
 
 	return true
 }
+
+type question struct {
+	p para
+	a ans
+}
+
+type para struct {
+	one int
+}
+
+type ans struct {
+	one bool
+}
