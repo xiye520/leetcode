@@ -42,8 +42,8 @@ func reverseList(head *Node) *Node {
 		return head
 	}
 
-	var prev *Node
-	cur := head
+	var prev *Node //  前一个节点
+	cur := head    //  当前节点
 	for cur != nil {
 		cur.Next, prev, cur = prev, cur, cur.Next
 	}
@@ -65,6 +65,22 @@ func main() {
 	printNode(node1)
 
 	//head := reverseNode(node1)
-	head := reverseList(node1)
+	//head := reverseList(node1)
+	head := reverse(node1)
 	printNode(head)
+}
+
+func reverse(head *Node) *Node {
+	if head == nil || head.Next == nil {
+		return head
+	}
+
+	var prev *Node
+	cur := head
+	for cur != nil {
+		//cur.Next, prev, cur = prev, cur, cur.Next
+		prev, cur, cur.Next = cur, cur.Next, prev
+	}
+
+	return prev
 }

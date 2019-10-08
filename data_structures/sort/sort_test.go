@@ -41,6 +41,15 @@ func Test_bubbleSort3(t *testing.T) {
 	fmt.Println("after sort array:", array)
 }
 
+/*
+性能分析对比：
+goos: windows
+goarch: 386
+pkg: leetcode/data_structures/sort
+BenchmarkBubbleSort-2            2000000               904 ns/op
+BenchmarkBubbleSort2-2          20000000                71.2 ns/op
+BenchmarkBubbleSort3-2          20000000                96.4 ns/op
+*/
 func BenchmarkBubbleSort(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		BubbleSort(array)

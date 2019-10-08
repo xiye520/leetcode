@@ -30,38 +30,21 @@ func reverseBetween(head *ListNode, m int, n int) *ListNode {
 		return head
 	}
 
-	var dump ListNode
-	dump.Next = head
-	start := &dump
+	var dump ListNode // 定义结果链表
+	dump.Next = head  // 初始化
+	start := &dump    // 更新结果链表
 	for i := 1; i < m; i++ {
 		start = start.Next
 	}
 
 	end := start.Next
 	for i := m; i < n; i++ {
-		cur := end.Next
-		end.Next = end.Next.Next
+		cur := end.Next          // 更新当前节点
+		end.Next = end.Next.Next // 更新下一节点
 
-		cur.Next = start.Next
+		cur.Next = start.Next // 更新当前节点的下一节点
 		start.Next = cur
 	}
 
 	return dump.Next
-}
-
-func reverseList(head *ListNode, m int, n int) *ListNode {
-	if head == nil || head.Next == nil {
-		return head
-	}
-
-	var prev *ListNode
-	cur := head
-	if cur.Next != nil {
-		cur.Next = prev
-		prev = cur
-		cur = cur.Next
-	}
-
-	return prev
-
 }
