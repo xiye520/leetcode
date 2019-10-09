@@ -54,6 +54,13 @@ func Test_isPalindrome(t *testing.T) {
 	}
 }
 
+// 70.爬楼梯
+func Test_climbStairs1(t *testing.T) {
+	for i := 0; i < 10; i++ {
+		t.Log(i, climbStairs(i))
+	}
+}
+
 // 169.求众数
 func Test_majorityElement(t *testing.T) {
 	arr := []int{2, 2, 1, 1, 1, 2, 2}
