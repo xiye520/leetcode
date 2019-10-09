@@ -1,6 +1,7 @@
 package easy
 
 import (
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -54,6 +55,37 @@ func Test_isPalindrome(t *testing.T) {
 	}
 }
 
+// 35.搜索插入位置
+func Test_searchInsert(t *testing.T) {
+	nums := []int{-1, 0, 3, 5, 9, 12}
+	target := 2
+	t.Log(searchInsert(nums, target))
+	nums = []int{1, 3, 5, 6}
+	t.Log(searchInsert(nums, target))
+
+}
+
+func Test_searchInsert2(t *testing.T) {
+	nums := []int{-1, 0, 3, 5, 9, 12}
+	target := 2
+	t.Log(searchInsert2(nums, target))
+	nums = []int{1, 3, 5, 6}
+	t.Log(searchInsert2(nums, target))
+}
+
+func Example_searchInsert() {
+	fmt.Println(searchInsert([]int{-1, 0, 3, 5, 9, 12}, 2))
+	fmt.Println(searchInsert([]int{1, 3, 5, 6}, 2))
+	fmt.Println(searchInsert2([]int{-1, 0, 3, 5, 9, 12}, 2))
+	fmt.Println(searchInsert2([]int{1, 3, 5, 6}, 2))
+
+	// Output:
+	// 2
+	// 1
+	// 2
+	// 1
+}
+
 // 70.爬楼梯
 func Test_climbStairs1(t *testing.T) {
 	for i := 0; i < 10; i++ {
@@ -80,4 +112,11 @@ func Test_majorityElement3(t *testing.T) {
 	arr := []int{2, 2, 1, 1, 1, 2, 2}
 	result := majorityElement3(arr)
 	t.Log(result)
+}
+
+// 704.二分查找
+func Test_binarySearch(t *testing.T) {
+	nums := []int{-1, 0, 3, 5, 9, 12}
+	target := 3
+	t.Log(search(nums, target))
 }
