@@ -45,29 +45,9 @@ func climbStairs(n int) int {
 }
 
 func climbStairs2(n int) int {
-	if n == 0 {
-		return 1
-	}
-
-	if n == 1 {
+	if n < 2 {
 		return 1
 	}
 
 	return climbStairs2(n-1) + climbStairs2(n-2)
-}
-
-func climbStairs3(n int) int {
-
-	return climb_Stairs(0, n)
-}
-
-func climb_Stairs(i, n int) int {
-	if i > n {
-		return 0
-	}
-	if i == n {
-		return 1
-	}
-
-	return climb_Stairs(i+1, n) + climb_Stairs(i+2, n)
 }

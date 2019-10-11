@@ -87,9 +87,13 @@ func Example_searchInsert() {
 }
 
 // 70.爬楼梯
-func Test_climbStairs1(t *testing.T) {
+func Test_climbStairs(t *testing.T) {
 	for i := 0; i < 10; i++ {
 		t.Log(i, climbStairs(i))
+	}
+
+	for i := 0; i < 10; i++ {
+		t.Log(i, climbStairs2(i))
 	}
 }
 
