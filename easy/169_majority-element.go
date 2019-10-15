@@ -1,5 +1,7 @@
 package easy
 
+import "fmt"
+
 /*
 169.求众数
 
@@ -22,7 +24,10 @@ package easy
 func majorityElement(nums []int) int {
 	count := make(map[int]int, 0)
 	for _, n := range nums {
+		fmt.Println(n)
+		fmt.Println(count)
 		count[n]++
+		fmt.Println(count)
 	}
 
 	preTimes := 0

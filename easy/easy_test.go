@@ -97,6 +97,13 @@ func Test_climbStairs(t *testing.T) {
 	}
 }
 
+// 121. 买卖股票的最佳时机
+func Test_maxProfit(t *testing.T) {
+	prices := []int{1, 2, 6, 4, 5}
+	prices = []int{7, 1, 5, 3, 2, 6}
+	t.Log(maxProfit(prices))
+}
+
 // 169.求众数
 func Test_majorityElement(t *testing.T) {
 	arr := []int{2, 2, 1, 1, 1, 2, 2}
@@ -116,6 +123,30 @@ func Test_majorityElement3(t *testing.T) {
 	arr := []int{2, 2, 1, 1, 1, 2, 2}
 	result := majorityElement3(arr)
 	t.Log(result)
+}
+
+// 326.3的幂
+func Example_isPowerOfThree() {
+	fmt.Println(isPowerOfThree(0))
+	fmt.Println(isPowerOfThree(1))  // true
+	fmt.Println(isPowerOfThree(3))  // true
+	fmt.Println(isPowerOfThree(9))  // true
+	fmt.Println(isPowerOfThree(27)) // true
+	fmt.Println(isPowerOfThree(28))
+	fmt.Println(isPowerOfThree(29))
+	fmt.Println(isPowerOfThree(30))
+	fmt.Println(isPowerOfThree(45))
+
+	// Output:
+	// false
+	// true
+	// true
+	// true
+	// true
+	// false
+	// false
+	// false
+	// false
 }
 
 // 704.二分查找
