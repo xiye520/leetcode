@@ -43,3 +43,22 @@ func removeDuplicates(nums []int) int {
 
 	return index + 1
 }
+
+func removeDuplicates2(nums []int) int {
+	if len(nums) <= 1 {
+		return len(nums)
+	}
+
+	//now := nums[0]
+	index := 0
+	for i := 1; i < len(nums); i++ {
+		if nums[index] != nums[i] {
+			index++
+			nums[index] = nums[i]
+			//now = nums[i]
+			continue
+		}
+	}
+
+	return index + 1
+}

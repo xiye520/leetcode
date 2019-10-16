@@ -83,7 +83,26 @@ func Test_searchRange2(t *testing.T) {
 	}
 }
 
+// 78.子集
+func Test_subsets(t *testing.T) {
+	nums := []int{1, 2, 3}
+	nums = []int{1, 2, 3, 4}
+	res := subsets(nums)
+	for _, r := range res {
+		t.Log(r)
+	}
+}
+
 // 92. 反转链表 II
 func Test_reverseBetween(t *testing.T) {
 	sord3()
+}
+
+func Test_medium(t *testing.T) {
+	nums := []int{1, 2, 3}
+	nums = []int{1, 2, 3, 4}
+	res := subsets(nums)
+	for _, r := range res {
+		t.Log(r)
+	}
 }

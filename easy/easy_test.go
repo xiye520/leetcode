@@ -65,6 +65,7 @@ func Test_searchInsert(t *testing.T) {
 
 }
 
+// 35.搜索插入位置
 func Test_searchInsert2(t *testing.T) {
 	nums := []int{-1, 0, 3, 5, 9, 12}
 	target := 2
@@ -73,6 +74,7 @@ func Test_searchInsert2(t *testing.T) {
 	t.Log(searchInsert2(nums, target))
 }
 
+// 35.搜索插入位置
 func Example_searchInsert() {
 	fmt.Println(searchInsert([]int{-1, 0, 3, 5, 9, 12}, 2))
 	fmt.Println(searchInsert([]int{1, 3, 5, 6}, 2))
@@ -84,6 +86,13 @@ func Example_searchInsert() {
 	// 1
 	// 2
 	// 1
+}
+
+// 66.加一
+func Test_plusOne(t *testing.T) {
+	nums := []int{9, 9, 9, 9}
+
+	t.Log(plusOne(nums))
 }
 
 // 70.爬楼梯
@@ -154,4 +163,23 @@ func Test_binarySearch(t *testing.T) {
 	nums := []int{-1, 0, 3, 5, 9, 12}
 	target := 3
 	t.Log(search(nums, target))
+}
+
+/*
+示例 1:
+
+输入: [1,2,3]
+输出: [1,2,4]
+解释: 输入数组表示数字 123。
+示例 2:
+
+输入: [4,3,2,1]
+输出: [4,3,2,2]
+解释: 输入数组表示数字 4321。
+*/
+
+func Test_easy(t *testing.T) {
+	nums := []int{9, 9, 9, 9}
+
+	t.Log(plusOne(nums))
 }
