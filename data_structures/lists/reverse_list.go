@@ -21,12 +21,12 @@ func reverseNode(head *Node) *Node {
 	//  前一个节点
 	var preNode *Node
 	preNode = nil
-	//  后一个节点
-	nextNode := new(Node)
-	nextNode = nil
+	////  后一个节点
+	//nextNode := new(Node)
+	//nextNode = nil
 	for head != nil {
 		//  保存头节点的下一个节点，
-		nextNode = head.Next
+		nextNode := head.Next
 		//  将头节点指向前一个节点
 		head.Next = preNode
 		//  更新前一个节点

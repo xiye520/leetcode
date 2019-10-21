@@ -1,4 +1,4 @@
-package easy
+package problem0206
 
 /*
 206 反转链表
@@ -26,5 +26,19 @@ func reverseList(head *ListNode) *ListNode {
 	for cur != nil {
 		cur.Next, prev, cur = prev, cur, cur.Next
 	}
+	return prev
+}
+
+func reverseList2(head *ListNode) *ListNode {
+	var prev *ListNode
+	for head != nil {
+		tmp := head.Next // 保存头节点的下一个节点，以防head.Next丢失
+		head.Next = prev // 将头节点指向前一个节点
+		prev = head      // 更新前一个节点
+
+		head = tmp // 更新头节点
+
+	}
+
 	return prev
 }

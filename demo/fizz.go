@@ -1,8 +1,8 @@
 package main
 
 import (
+	"fmt"
 	"strconv"
-	"testing"
 )
 
 func FizzBuzz(n int) []string {
@@ -31,9 +31,32 @@ func FizzBuzz(n int) []string {
 	return r
 }
 
-func TestFizzBuzz(t *testing.T) {
-	r := FizzBuzz(15)
+func main() {
+	r := fizzBuzz(15)
+	fmt.Println(r)
 	for _, v := range r {
-		t.Log(v)
+		fmt.Println(v)
 	}
+}
+
+func fizzBuzz(n int) []string {
+	s := make([]string, n)
+	var fb bool
+	for i := 1; i <= n; i++ {
+		fb = false
+		if i%3 == 0 {
+			s[i-1] = "Fizz"
+			fb = true
+		}
+		if i%5 == 0 {
+			s[i-1] = s[i-1] + "Buzz"
+			fb = true
+		}
+
+		if !fb {
+			s[i-1] = strconv.Itoa(i)
+		}
+	}
+
+	return s
 }
