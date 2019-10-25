@@ -111,3 +111,9 @@ func innerParrtition(arr []int, lo, hi int) int {
 	arr[lo], arr[j] = arr[j], arr[lo]
 	return j
 }
+
+func Test_quickSort2(t *testing.T) {
+	s := []int{10, 6, 7, 4, 2, 5}
+	quickSort3(s, 0, len(s))
+	t.Log(s)
+}
