@@ -59,3 +59,30 @@ func decodeString(s string) string {
 
 	return curStr
 }
+
+func decodeString2(s string) string {
+	// 2[abc]3[cd]ef
+	num := 0
+	cur := ""
+	stack := []Pair{}
+	for _, c := range s {
+		switch {
+		case unicode.IsDigit(c): //
+			n, _ := strconv.Atoi(string(c))
+			num += num*10 + n
+
+		case c == '[': // 前面的数字到此结束
+			stack = append(stack, Pair{nextNum: num, thisStr: cur})
+			num = 0
+			cur = ""
+		case c == ']':
+			last := stack[len(stack)-1]
+			stack = stack[0 : len(stack)-1]
+			cur = last.thisStr + multiplyStr(last.nextNum, cur) // 将此前的拼接上来
+		default:
+			cur = cur + string(c)
+		}
+	}
+
+	return cur
+}
