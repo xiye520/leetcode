@@ -22,8 +22,8 @@ package medium
 */
 func maxArea(height []int) (result int) {
 	for i, j := 0, len(height)-1; i < j; {
-		now := (j - i) * minInt(height[i], height[j])
-		result = maxInt(result, now)
+		now := (j - i) * min(height[i], height[j])
+		result = max(result, now)
 		if height[i] < height[j] {
 			i++
 		} else {
@@ -31,18 +31,4 @@ func maxArea(height []int) (result int) {
 		}
 	}
 	return result
-}
-
-func maxInt(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
-
-func minInt(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
 }

@@ -65,13 +65,6 @@ func canJump2(nums []int) bool {
 	return true
 }
 
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
-
 /*
 [2,3,1,1,4] 		true
 [3,2,1,0,4] 		false
