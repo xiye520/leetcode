@@ -22,7 +22,7 @@ package medium
 */
 func maxArea(height []int) (result int) {
 	for i, j := 0, len(height)-1; i < j; {
-		now := (j - i) * min(height[i], height[j])
+		now := (j - i) * tools.min(height[i], height[j])
 		result = max(result, now)
 		if height[i] < height[j] {
 			i++
