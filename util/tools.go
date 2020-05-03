@@ -1,4 +1,4 @@
-package medium
+package util
 
 func max(x, y int) int {
 	if x > y {

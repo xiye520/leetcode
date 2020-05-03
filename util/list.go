@@ -1,8 +1,13 @@
-package easy
+package util
 
 import (
 	"fmt"
 )
+
+//type Node struct {
+//	Val  int
+//	Next *ListNode
+//}
 
 //* Definition for singly-linked list.
 type ListNode struct {
