@@ -31,3 +31,11 @@ func (s *Stack) Len() int {
 func (s *Stack) IsEmpty() bool {
 	return s.Len() == 0
 }
+
+// 返回栈顶上一个元素
+func (s *Stack) Peek() int {
+	if s.IsEmpty() {
+		return 0
+	}
+	return s.nums[s.Len()-1]
+}
