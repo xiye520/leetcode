@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 /*
 你有50枚金币，需要分配给以下几个人：Matthew,Sarah,Augustus,Heidi,Emilie,Peter,Giana,Adriano,Aaron,Elizabeth。
 分配规则如下：
@@ -19,11 +17,6 @@ var (
 	}
 	distribution = make(map[string]int, len(users))
 )
-
-func main() {
-	left := dispatchCoin()
-	fmt.Println("剩下：", left)
-}
 
 func dispatchCoin() int {
 	count := 0

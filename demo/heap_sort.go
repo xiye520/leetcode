@@ -9,8 +9,6 @@ https://blog.csdn.net/MoreWin...
 // 其存在一个前提假设，就是两个孩子都已经是大顶堆
 package main
 
-import "fmt"
-
 func MaxHeapFixDown(list []int, i int, n int) {
 	var (
 		parent int
@@ -62,13 +60,4 @@ func HeapSort(list []int) {
 		MaxHeapFixDown(list, 0, n-1)
 	}
 
-}
-
-func main() {
-	var inputList = []int{5, 3, 8, 22, 76, 1, 31, 55}
-	// var inputList = []int{}
-	// inputList = CreateList(inputList, 10)
-
-	HeapSort(inputList)
-	fmt.Println(inputList)
 }

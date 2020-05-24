@@ -4,6 +4,78 @@ import (
 	"fmt"
 )
 
+func quickSort111(values []int, left int, right int) {
+	key := values[left] //取出第一项
+	p := left
+	i, j := left, right
+
+	for i <= j {
+		//由后开始向前搜索(j--)，找到第一个小于key的值values[j]
+		for j >= p && values[j] >= key {
+			j--
+		}
+
+		//第一个小于key的值 赋给 values[p]
+		if j >= p {
+			values[p] = values[j]
+			p = j
+		}
+
+		if values[i] <= key && i <= p {
+			i++
+		}
+
+		if i < p {
+			values[p] = values[i]
+			p = i
+		}
+
+		values[p] = key
+		if p-left > 1 {
+			quickSort111(values, left, p-1)
+		}
+		if right-p > 1 {
+			quickSort111(values, p+1, right)
+		}
+	}
+
+}
+
+func QuickSort(values []int) {
+	quickSort111(values, 0, len(values)-1)
+}
+
+//快速排序方式二
+func quickSort222(sortArray []int, left, right int) {
+	if left < right {
+		key := sortArray[(left+right)/2]
+		i := left
+		j := right
+
+		for {
+			for sortArray[i] < key {
+				i++
+			}
+			for sortArray[j] > key {
+				j--
+			}
+			if i >= j {
+				break
+			}
+			sortArray[i], sortArray[j] = sortArray[j], sortArray[i]
+		}
+
+		quickSort222(sortArray, left, i-1)
+		quickSort222(sortArray, j+1, right)
+	}
+}
+
+func QuickSort2(values []int) {
+	quickSort222(values, 0, len(values)-1)
+}
+
+// -----------------------------------
+
 // 快排方案1
 func quickSort(list []int) {
 	// 左闭右闭[a,b]
@@ -261,11 +333,11 @@ func test_quickSort5(s []int) {
 	fmt.Println(s)
 }
 
-func main() {
-	var inputList = []int{5, 3, 8, 22, 76, 1, 31, 55}
-	//test_quickSort(inputList)
-	//test_quickSort2(inputList)
-	//test_quickSort3(inputList)
-	//test_quickSort4(inputList)
-	test_quickSort5(inputList)
-}
+//func main() {
+//	var inputList = []int{5, 3, 8, 22, 76, 1, 31, 55}
+//	//test_quickSort(inputList)
+//	//test_quickSort2(inputList)
+//	//test_quickSort3(inputList)
+//	//test_quickSort4(inputList)
+//	test_quickSort5(inputList)
+//}

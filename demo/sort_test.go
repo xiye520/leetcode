@@ -71,49 +71,29 @@ func TestSelectSort(t *testing.T) {
 	fmt.Println("after sort array:", array)
 }
 
-func TestQuickSort(t *testing.T) {
-	array := []int{12, 84, 5, 63, 37, 9, 56, 1399}
-	fmt.Println("befor sort array:", array)
-	QuickSort2(array)
-	fmt.Println("after sort array:", array)
+func TestHeapSort(t *testing.T) {
+	var inputList = []int{5, 3, 8, 22, 76, 1, 31, 55}
+	// var inputList = []int{}
+	// inputList = CreateList(inputList, 10)
+
+	HeapSort(inputList)
+	t.Log(inputList)
 }
 
-func QuickSort2(arr []int) []int {
-	innerQuickSort(arr, 0, len(arr)-1)
-	return arr
+func TestMergeSort(t *testing.T) {
+	// var inputList = []int{5, 3, 8, 22, 76, 1, 31, 55}
+	var inputList = []int{}
+	inputList = CreateList(inputList, 10)
+
+	MergeSort(inputList, 0, len(inputList)-1)
+	t.Log(inputList)
 }
 
-func innerQuickSort(arr []int, lo, hi int) {
-	fmt.Println("lo, hi", lo, hi)
-	if lo >= hi {
-		return
-	}
-	mid := innerParrtition(arr, lo, hi)
-	innerQuickSort(arr, lo, mid)
-	innerQuickSort(arr, mid+1, hi)
-}
-
-func innerParrtition(arr []int, lo, hi int) int {
-	i, j := lo+1, hi
-	k := arr[lo]
-	for {
-		for i < hi && k >= arr[i] {
-			i++
-		}
-		for j > lo && k <= arr[j] {
-			j--
-		}
-		if i >= j {
-			break
-		}
-		arr[i], arr[j] = arr[j], arr[i] // 交换
-	}
-	arr[lo], arr[j] = arr[j], arr[lo]
-	return j
-}
-
-func Test_quickSort2(t *testing.T) {
-	s := []int{10, 6, 7, 4, 2, 5}
-	quickSort3(s, 0, len(s))
-	t.Log(s)
+func Test_quick_sort(t *testing.T) {
+	var inputList = []int{5, 3, 8, 22, 76, 1, 31, 55}
+	//test_quickSort(inputList)
+	//test_quickSort2(inputList)
+	//test_quickSort3(inputList)
+	//test_quickSort4(inputList)
+	test_quickSort5(inputList)
 }

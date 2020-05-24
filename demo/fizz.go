@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 )
 
@@ -29,14 +28,6 @@ func FizzBuzz(n int) []string {
 	}
 
 	return r
-}
-
-func main() {
-	r := fizzBuzz(15)
-	fmt.Println(r)
-	for _, v := range r {
-		fmt.Println(v)
-	}
 }
 
 func fizzBuzz(n int) []string {

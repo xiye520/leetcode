@@ -1,7 +1,5 @@
 package main
 
-import "log"
-
 /**
 一个有意思的题目，求最大蓄水面积
 简单介绍一下，找到两个柱子，使其“蓄水”面积最大譬如
@@ -37,10 +35,4 @@ func minInt(x, y int) int {
 	return y
 }
 
-func main() {
-	result := maxArea([]int{1, 8, 6, 2, 5, 4, 8, 3, 7})
-	if result != 49 {
-		log.Fatalf("maxArea not match 49,it is: %d\n", result)
-	}
-	log.Printf("success maxArea: %d", result)
-}
+//

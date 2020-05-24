@@ -36,29 +36,21 @@ func fabo_channel(output chan<- int, quit chan bool) {
 			return
 		}
 	}
-
 }
 
-func main() {
-	//f := fabonacci_pack()
-	//for i := 0; i < 10; i++ {
-	//10fmt.Println(i, f())
-	//}
+// 4.动态规划
+func fabp_dp(n int) int {
+	if n <= 0 {
+		return 0
+	}
+	if n <= 2 {
+		return 1
+	}
+	dp := make([]int, n+1)
+	dp[1], dp[2] = 1, 1
+	for i := 3; i <= n; i++ {
+		dp[i] = dp[i-1] + dp[i-2]
+	}
 
-	//for i := 0; i < 10; i++ {
-	//10fmt.Println(i, fabo_recursion(i))
-	//}
-
-	quit := make(chan bool)
-	output := make(chan int)
-	go func() {
-		for i := 0; i < 10; i++ {
-			n := <-output
-			fmt.Println(n)
-		}
-		quit <- true
-	}()
-
-	fabo_channel(output, quit)
-	//close(quit)
+	return dp[n]
 }

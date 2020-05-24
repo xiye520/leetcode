@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 //二分法查找
 //切片s是升序的
 //k为待查找的整数
@@ -20,11 +18,4 @@ func BinarySearch(s []int, k int) int {
 		}
 	}
 	return -1
-}
-
-//测试：
-func main() {
-	s := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
-	fmt.Println(BinarySearch(s, 5))
-
 }
