@@ -1,2 +1,2 @@
 # leetcode
-this is my leetcode demo
+This is some leetcode practice，implemented in go language.
