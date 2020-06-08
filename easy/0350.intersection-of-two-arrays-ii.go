@@ -47,14 +47,6 @@ func intersect(nums1 []int, nums2 []int) []int {
 	return ret
 }
 
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-
-	return y
-}
-
 func intersect2(nums1 []int, nums2 []int) []int {
 	res := []int{}
 	m1 := getInts(nums1)

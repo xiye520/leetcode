@@ -183,3 +183,17 @@ func Test_easy(t *testing.T) {
 
 	t.Log(plusOne(nums))
 }
+
+// go test -v -test.run Test_kidsWithCandies
+func Test_kidsWithCandies(t *testing.T) {
+	candies := []int{2, 3, 5, 1, 3}
+	extraCandies := 3
+	res := kidsWithCandies(candies, extraCandies)
+	want := []bool{true, true, true, false, true}
+	for i := range res {
+		if res[i] != want[i] {
+			t.Fatal(i, res[i])
+		}
+	}
+	t.Log("success")
+}
