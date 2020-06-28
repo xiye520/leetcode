@@ -31,3 +31,4 @@ _testmain.go
 !bin/*.exe
 /main.go
 /demo.go
+/xiye
