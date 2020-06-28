@@ -1,6 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"log"
+)
+
+func init() {
+	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
+}
 
 func isBalance(str string) bool {
 	// {}[]()
@@ -36,7 +42,7 @@ func isBalance(str string) bool {
 		}
 	}
 	if n != 0 {
-		fmt.Println(n)
+		log.Println(n)
 		return false
 	}
 
