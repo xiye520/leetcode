@@ -1,6 +1,8 @@
 # leetcode
 This is some leetcode practice，implemented in go language..
 
+![Goland](docs/goland-text.svg)
+
 ## Thanks
 
-[![Jetbrains](docs/jetbrains.svg)](https://www.jetbrains.com/?from=xiye518)
+[![Goland](docs/goland.svg)](https://www.jetbrains.com/?from=xiye518)
