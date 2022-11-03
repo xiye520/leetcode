@@ -1,6 +1,8 @@
 package hard
 
-import "leetcode/data/kit"
+import (
+	"github.com/xiye520/leetcode/data/kit"
+)
 
 /*
 32. 最长有效括号

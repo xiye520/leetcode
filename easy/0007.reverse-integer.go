@@ -46,7 +46,7 @@ func reverse(x int) int {
 		r = -1 * r
 	}
 
-	if r > 1<<31-1-1 || r < -1<<31 {
+	if r > math.MaxInt32 || r < math.MinInt32 {
 		return 0
 	}
 

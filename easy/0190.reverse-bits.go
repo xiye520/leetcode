@@ -2,7 +2,7 @@ package easy
 
 import (
 	"fmt"
-	"leetcode/util"
+	"github.com/xiye520/leetcode/util"
 )
 
 func reverseBits(num uint32) uint32 {

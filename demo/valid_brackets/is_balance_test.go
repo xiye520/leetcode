@@ -15,6 +15,7 @@ func Test_isBalance(t *testing.T) {
 	}
 
 	for k, v := range par {
+		//t.Logf("input: %v,want: %v", k, v)
 		res := isBalance(k)
 		if v != res {
 			t.Fatalf("str: %s, want: %v,res: %v", k, v, res)

@@ -48,3 +48,18 @@ func twoSum2(nums []int, target int) []int {
 
 	return nil
 }
+
+func twoSum3(nums []int, target int) []int {
+	start, end := 0, len(nums)-1
+	for start < end {
+		sum := nums[start] + nums[end]
+		if sum == target {
+			return []int{start, end}
+		} else if sum < end {
+			start++
+		} else {
+			end--
+		}
+	}
+	return nil
+}

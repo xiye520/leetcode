@@ -1,7 +1,7 @@
 package main
 
 import (
-	"leetcode/data/kit"
+	"github.com/xiye520/leetcode/data/kit"
 	"testing"
 )
 
@@ -35,18 +35,18 @@ func isValid(s string) bool {
 	return sum == 0
 }
 
-//func Test_isValid(t *testing.T) {
-//	par := map[string]bool{
-//		"(())": true,
-//		"())(": false,
-//		"":     true,
-//	}
-//	for k, v := range par {
-//		if isValid(k) != v {
-//			t.Fatal(k, v)
-//		}
-//	}
-//}
+func Test_isValid(t *testing.T) {
+	par := map[string]bool{
+		"(())": true,
+		"())(": false,
+		"":     true,
+	}
+	for k, v := range par {
+		if isValid(k) != v {
+			t.Fatal(k, v)
+		}
+	}
+}
 
 /*
 三、最长有效括号
@@ -80,6 +80,7 @@ func longestValidParentheses(s string) int {
 func Test_longestValidParentheses(t *testing.T) {
 
 	//t.Log(longestValidParentheses("(()"))
+	//t.Log(longestValidParentheses(")()())"))
 
 	par := map[string]int{
 		"(()":    2,

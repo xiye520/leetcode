@@ -49,6 +49,24 @@ func isPalindrome(x int) bool {
 	return true
 }
 
+func isPalindrome2(x int) bool {
+	// 负数，直接返回
+	if x < 0 {
+		return false
+	}
+	s := strconv.Itoa(x)
+	start, end := 0, len(s)-1
+	for start < end {
+		if s[start] != s[end] {
+			return false
+		}
+		start++
+		end--
+	}
+
+	return true
+}
+
 type question struct {
 	p para
 	a ans

@@ -1,6 +1,8 @@
 package easy
 
-import "leetcode/util"
+import (
+	"github.com/xiye520/leetcode/util"
+)
 
 // 使用map，时间复杂度、空间复杂度均为O(n)
 func hasCycle2(head *util.ListNode) bool {

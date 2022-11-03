@@ -11,10 +11,44 @@ func TestTwoSum(t *testing.T) {
 	target := 9
 	nums := []int{2, 7, 11, 15}
 
-	indexs := twoSum2(nums, target)
+	//indexs := twoSum2(nums, target)
+	indexs := twoSum3(nums, target)
 
 	if len(nums) < 2 || nums[indexs[0]]+nums[indexs[1]] != target {
 		t.Fatal("fails....")
+	}
+}
+
+func TestReverse2(t *testing.T) {
+
+	type args struct {
+		x int
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			name: "success",
+			args: args{x: 123},
+			want: 321,
+		},
+		{
+			name: "success2",
+			args: args{x: -123},
+			want: -321,
+		},
+		{
+			name: "success2",
+			args: args{x: 1563847412},
+			want: 0,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			assert.Equalf(t, tt.want, reverse(tt.args.x), "reverse(%v)", tt.args.x)
+		})
 	}
 }
 
@@ -51,7 +85,7 @@ func Test_isPalindrome(t *testing.T) {
 
 	for _, q := range qs {
 		a, p := q.a, q.p
-		ast.Equal(a.one, isPalindrome(p.one), "输入:%v", p)
+		ast.Equal(a.one, isPalindrome2(p.one), "输入:%v", p)
 	}
 }
 

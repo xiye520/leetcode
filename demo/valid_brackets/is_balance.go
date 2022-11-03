@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 )
 
@@ -16,6 +17,7 @@ func isBalance(str string) bool {
 	m := make(map[int]int32, 0)
 	var n int
 	for _, c := range str {
+		//fmt.Println(int(c))
 		switch c {
 		case '[':
 			n++
@@ -27,7 +29,7 @@ func isBalance(str string) bool {
 			n++
 			m[n] = c + 1
 		default:
-			//fmt.Println(int(c), n, m)
+			fmt.Println(int(c), n, m)
 			if n <= 0 {
 				return false
 			}

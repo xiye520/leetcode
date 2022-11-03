@@ -48,3 +48,8 @@ func reverseBetween(head *ListNode, m int, n int) *ListNode {
 
 	return dump.Next
 }
+
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}

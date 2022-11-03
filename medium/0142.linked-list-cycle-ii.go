@@ -1,6 +1,6 @@
 package medium
 
-import "leetcode/util"
+import "github.com/xiye520/leetcode/util"
 
 // 1.使用map时空复杂度均为O(n)
 func detectCycle(head *util.ListNode) *util.ListNode {
