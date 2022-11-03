@@ -3,7 +3,6 @@ package main
 //链表实现
 import (
 	"fmt"
-	"os"
 )
 
 //定义错误常量
@@ -137,22 +136,22 @@ func Traverse(head *LinkNode) {
 	fmt.Println("Traverse OK!")
 }
 
-//主函数测试
-func main() {
-	var head LinkNode = LinkNode{Data: 0, Next: nil}
-	head.Data = 0
-	var nodeArray []Element
-	for i := 0; i < 10; i++ {
-		nodeArray = append(nodeArray, Element(i+1+i*100))
-		Add(&head, nodeArray[i])
-
-	}
-
-	Delete(&head, 3)
-	Search(&head, 2032)
-	Insert(&head, 23, 10010)
-	Traverse(&head)
-	fmt.Println("data is", GetData(&head, 6))
-	fmt.Println("length:", GetLength(&head))
-	os.Exit(0)
-}
+////主函数测试
+//func main() {
+//	var head LinkNode = LinkNode{Data: 0, Next: nil}
+//	head.Data = 0
+//	var nodeArray []Element
+//	for i := 0; i < 10; i++ {
+//		nodeArray = append(nodeArray, Element(i+1+i*100))
+//		Add(&head, nodeArray[i])
+//
+//	}
+//
+//	Delete(&head, 3)
+//	Search(&head, 2032)
+//	Insert(&head, 23, 10010)
+//	Traverse(&head)
+//	fmt.Println("data is", GetData(&head, 6))
+//	fmt.Println("length:", GetLength(&head))
+//	os.Exit(0)
+//}

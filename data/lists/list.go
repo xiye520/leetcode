@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 )
 
 type LinkedList struct {
@@ -38,16 +37,16 @@ func (ll *LinkedList) Set(v string) {
 	ll.Value = v
 }
 
-func main() {
-	ll := &LinkedList{
-		Value: "123",
-	}
-	for i := 0; i < 10; i++ {
-		ll.Push(strconv.Itoa(i))
-	}
-	fmt.Println("PinrfInOrder")
-	ll.prinfListInOrder()
-	fmt.Println("")
-	fmt.Println("PinrfInReservedOrder")
-	ll.prinfListInReserveOrder()
-}
+//func main() {
+//	ll := &LinkedList{
+//		Value: "123",
+//	}
+//	for i := 0; i < 10; i++ {
+//		ll.Push(strconv.Itoa(i))
+//	}
+//	fmt.Println("PinrfInOrder")
+//	ll.prinfListInOrder()
+//	fmt.Println("")
+//	fmt.Println("PinrfInReservedOrder")
+//	ll.prinfListInReserveOrder()
+//}
