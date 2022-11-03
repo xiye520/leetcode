@@ -1,5 +1,7 @@
 package medium
 
+import "github.com/xiye520/leetcode/util"
+
 /*
 你是一个专业的小偷，计划偷窃沿街的房屋，每间房内都藏有一定的现金。这个地方所有的房屋都围成一圈，这意味着第一个房屋和最后一个房屋是紧挨着的。同时，相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
 
@@ -25,7 +27,7 @@ package medium
 // 环状排列意味着第一个房子和最后一个房子中只能选择一个偷窃，因此可以把此环状排列房间问题约化为两个单排排列房间子问题：
 // 1、在不偷窃第一个房子的情况下（即 nums[1:]），最大金额是p1；
 // 2、在不偷窃最后一个房子的情况下（即 nums[:n-1]），最大金额是p2;
-// 综合偷窃最大金额： 为以上两种情况的较大值，即 max(p1,p2) 。
+// 综合偷窃最大金额： 为以上两种情况的较大值，即 util.Max(p1,p2) 。
 func rob(nums []int) int {
 	if len(nums) == 0 {
 		return 0
@@ -34,7 +36,7 @@ func rob(nums []int) int {
 	if len(nums) == 1 {
 		return nums[0]
 	}
-	return max(tool(nums[:len(nums)-1]), tool(nums[1:]))
+	return util.Max(tool(nums[:len(nums)-1]), tool(nums[1:]))
 }
 
 func tool(nums []int) int {
@@ -47,14 +49,14 @@ func tool(nums []int) int {
 	}
 
 	if len(nums) == 2 {
-		return max(nums[0], nums[1])
+		return util.Max(nums[0], nums[1])
 	}
 
 	f := make([]int, len(nums))
 	f[0] = nums[0]
-	f[1] = max(nums[0], nums[1])
+	f[1] = util.Max(nums[0], nums[1])
 	for i := 2; i < len(nums); i++ {
-		f[i] = max(f[i-2]+nums[i], f[i-1])
+		f[i] = util.Max(f[i-2]+nums[i], f[i-1])
 	}
 
 	return f[len(nums)-1]

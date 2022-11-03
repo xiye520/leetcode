@@ -1,5 +1,7 @@
 package easy
 
+import "github.com/xiye520/leetcode/util"
+
 /*
 你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
 
@@ -32,14 +34,14 @@ func rob(nums []int) int {
 	}
 
 	if len(nums) == 2 {
-		return max(nums[0], nums[1])
+		return util.Max(nums[0], nums[1])
 	}
 
 	f := make([]int, len(nums))
 	f[0] = nums[0]
-	f[1] = max(nums[0], nums[1])
+	f[1] = util.Max(nums[0], nums[1])
 	for i := 2; i < len(nums); i++ {
-		f[i] = max(f[i-2]+nums[i], f[i-1])
+		f[i] = util.Max(f[i-2]+nums[i], f[i-1])
 	}
 
 	return f[len(nums)-1]

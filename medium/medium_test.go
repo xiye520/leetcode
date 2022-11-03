@@ -1,6 +1,7 @@
 package medium
 
 import (
+	"github.com/xiye520/leetcode/util"
 	"testing"
 )
 
@@ -100,7 +101,7 @@ func Test_subsets(t *testing.T) {
 
 // 92. 反转链表 II
 func Test_reverseBetween(t *testing.T) {
-	sord3()
+	util.Sord3()
 }
 
 func Test_medium(t *testing.T) {

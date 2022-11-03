@@ -1,5 +1,7 @@
 package hard
 
+import "github.com/xiye520/leetcode/util"
+
 func calculateMinimumHP(dungeon [][]int) int {
 	m := len(dungeon) // 多少行
 	if m == 0 {
@@ -24,7 +26,7 @@ func calculateMinimumHP(dungeon [][]int) int {
 	for i := m - 1; i >= 0; i-- {
 		for j := n - 1; j >= 0; j-- {
 			health = min(dp[i+1][j], dp[i][j+1]) - dungeon[i][j]
-			dp[i][j] = max(health, 1)
+			dp[i][j] = util.Max(health, 1)
 		}
 	}
 
@@ -71,7 +73,7 @@ func calculateMinimumHP2(dungeon [][]int) int {
 			// 可能会导致 health < 1 。此时，骑士无法到达 (i,j) 房间，这不符合题意
 			// 因此，当 health < 1 时,
 			// dp[i][j] = 1
-			dp[i][j] = max(health, 1)
+			dp[i][j] = util.Max(health, 1)
 		}
 	}
 

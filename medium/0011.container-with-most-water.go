@@ -1,5 +1,7 @@
 package medium
 
+import "github.com/xiye520/leetcode/util"
+
 /*
 11.盛最多水的容器
 
@@ -22,8 +24,8 @@ package medium
 */
 func maxArea(height []int) (result int) {
 	for i, j := 0, len(height)-1; i < j; {
-		now := (j - i) * tools.min(height[i], height[j])
-		result = max(result, now)
+		now := (j - i) * util.Min(height[i], height[j])
+		result = util.Max(result, now)
 		if height[i] < height[j] {
 			i++
 		} else {

@@ -43,7 +43,7 @@ func (l *ListNode) Set(v int) {
 	l.Val = v
 }
 
-func sord3() {
+func Sord3() {
 	l := &ListNode{
 		Val: 123,
 	}

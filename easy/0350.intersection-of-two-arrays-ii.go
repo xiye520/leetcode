@@ -1,5 +1,7 @@
 package easy
 
+import "github.com/xiye520/leetcode/util"
+
 /*
 350. 两个数组的交集 II
 
@@ -37,7 +39,7 @@ func intersect(nums1 []int, nums2 []int) []int {
 	ret := make([]int, 0, len(m1)+len(m2))
 	for k, v := range m1 {
 		if v2, ok := m2[k]; ok {
-			c := min(v, v2)
+			c := util.Min(v, v2)
 			for i := 0; i < c; i++ {
 				ret = append(ret, k)
 			}
@@ -57,7 +59,7 @@ func intersect2(nums1 []int, nums2 []int) []int {
 	}
 	// m1 是较短的字典，会快一些
 	for n := range m1 {
-		m1[n] = min(m1[n], m2[n])
+		m1[n] = util.Min(m1[n], m2[n])
 	}
 
 	for n, size := range m1 {

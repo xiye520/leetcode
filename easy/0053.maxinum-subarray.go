@@ -1,6 +1,9 @@
 package easy
 
-import "math"
+import (
+	"github.com/xiye520/leetcode/util"
+	"math"
+)
 
 /*
 53. 最大子序和
@@ -16,7 +19,7 @@ import "math"
 func maxSubArray(nums []int) int {
 	// dp
 	// 1.状态定义 F(i)表示下标为i时连续数组的最大和
-	// 2.状态转移方程 F(i) = max(F(i-1)+nums[i],nums[i]);
+	// 2.状态转移方程 F(i) = util.Max(F(i-1)+nums[i],nums[i]);
 	// 3.初始状态 F(0) = nums[0];
 	// 4.返回值 F(nums.size()-1)
 	if len(nums) == 0 {
@@ -26,8 +29,8 @@ func maxSubArray(nums []int) int {
 	res := nums[0]
 	fn := nums[0]
 	for i := 1; i < len(nums); i++ {
-		fn = max(nums[i], fn+nums[i])
-		res = max(fn, res)
+		fn = util.Max(nums[i], fn+nums[i])
+		res = util.Max(fn, res)
 	}
 
 	return res

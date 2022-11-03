@@ -1,5 +1,7 @@
 package medium
 
+import "github.com/xiye520/leetcode/util"
+
 func maxProduct(nums []int) int {
 	for len(nums) == 0 {
 		return 0
@@ -13,9 +15,9 @@ func maxProduct(nums []int) int {
 		if nums[i] < 0 {
 			mi, ma = ma, mi
 		}
-		ma = max(ma*nums[i], nums[i])
+		ma = util.Max(ma*nums[i], nums[i])
 		mi = min(mi*nums[i], nums[i])
-		res = max(res, ma)
+		res = util.Max(res, ma)
 	}
 
 	return res

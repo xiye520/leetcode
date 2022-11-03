@@ -1,6 +1,9 @@
 package easy
 
-import "math"
+import (
+	"github.com/xiye520/leetcode/util"
+	"math"
+)
 
 // 只要求出数组中最大的三个数以及最小的两个数，因此我们可以不用排序，用线性扫描直接得出这五个数。
 func maximumProduct(nums []int) int {
@@ -25,5 +28,5 @@ func maximumProduct(nums []int) int {
 		}
 	}
 
-	return max(max1*max2*max3, max1*min1*min2)
+	return util.Max(max1*max2*max3, max1*min1*min2)
 }

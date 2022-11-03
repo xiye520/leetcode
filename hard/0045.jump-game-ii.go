@@ -1,5 +1,7 @@
 package hard
 
+import "github.com/xiye520/leetcode/util"
+
 /*
 45. 跳跃游戏 II
 给定一个非负整数数组，你最初位于数组的第一个位置。
@@ -41,7 +43,7 @@ func jump(nums []int) int {
 	step := 0
 	for i := 0; i < len(nums)-1; i++ {
 		//一定跳得到，因此不存在 maxPosition < i
-		maxPosition = max(maxPosition, nums[i]+i)
+		maxPosition = util.Max(maxPosition, nums[i]+i)
 		//第一次起跳 或 到达跳跃的边界
 		if i == end {
 			//更新边界

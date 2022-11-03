@@ -1,6 +1,9 @@
 package medium
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/xiye520/leetcode/util"
+)
 
 /*
 55. 跳跃游戏
@@ -59,7 +62,7 @@ func canJump2(nums []int) bool {
 		if i > maxIndex {
 			return false
 		}
-		maxIndex = max(maxIndex, i+nums[i])
+		maxIndex = util.Max(maxIndex, i+nums[i])
 	}
 
 	return true

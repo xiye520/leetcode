@@ -3,6 +3,7 @@ package easy
 import (
 	"bytes"
 	"fmt"
+	"github.com/xiye520/leetcode/util"
 	"strconv"
 )
 
@@ -11,7 +12,7 @@ import (
 */
 func addStrings(num1 string, num2 string) string {
 	var ret string
-	length := max(len(num1), len(num2))
+	length := util.Max(len(num1), len(num2))
 	var carry bool
 	for i := 0; i < length; i++ {
 		sum := 0
@@ -89,7 +90,7 @@ func addStrings2(num1 string, num2 string) string {
 
 func addStrings3(num1 string, num2 string) string {
 	// 使用buffer写，比字符串拼接或者Sprintf效率高
-	length := max(len(num1), len(num2))
+	length := util.Max(len(num1), len(num2))
 	var bf bytes.Buffer
 	res := make([]string, 0, length+1)
 	var carry bool

@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/xiye520/leetcode/data/kit"
+	"github.com/xiye520/leetcode/util"
 	"testing"
 )
 
@@ -70,7 +71,7 @@ func longestValidParentheses(s string) int {
 	for i := 0; i < len(s); i++ {
 		for now := 2; i+now <= len(s); now += 2 {
 			if isValid(s[i : i+now]) {
-				n = max(n, now)
+				n = util.Max(n, now)
 			}
 		}
 	}
@@ -95,13 +96,6 @@ func Test_longestValidParentheses(t *testing.T) {
 	}
 }
 
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
-
 func longestValidParentheses2(s string) int {
 	n := 0
 	stack := kit.NewStack()
@@ -114,7 +108,7 @@ func longestValidParentheses2(s string) int {
 			if stack.IsEmpty() {
 				stack.Push(i)
 			} else {
-				n = max(n, i-stack.Peek())
+				n = util.Max(n, i-stack.Peek())
 			}
 		}
 	}
@@ -136,7 +130,7 @@ func longestValidParentheses3(s string) int {
 			right++
 		}
 		if left == right {
-			n = max(n, left*2)
+			n = util.Max(n, left*2)
 		} else if left < right {
 			left, right = 0, 0
 		}
@@ -151,7 +145,7 @@ func longestValidParentheses3(s string) int {
 			right++
 		}
 		if left == right {
-			n = max(n, left*2)
+			n = util.Max(n, left*2)
 		} else if left > right {
 			left, right = 0, 0
 		}

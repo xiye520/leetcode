@@ -1,6 +1,9 @@
 package easy
 
-import "container/list"
+import (
+	"container/list"
+	"github.com/xiye520/leetcode/util"
+)
 
 /*
 104. 二叉树的最大深度
@@ -33,7 +36,7 @@ func maxDepth(root *TreeNode) int {
 
 	left := maxDepth(root.Left) + 1
 	right := maxDepth(root.Right) + 1
-	return max(left, right)
+	return util.Max(left, right)
 }
 
 func maxDepth2(root *TreeNode) int {
