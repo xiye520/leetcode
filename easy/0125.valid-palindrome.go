@@ -108,3 +108,29 @@ func isChar(c byte) bool {
 	}
 	return false
 }
+
+func isPalindrome4(s string) bool {
+	s = strings.ToLower(s)
+	if len(s) <= 0 {
+		return true
+	}
+	start, end := 0, len(s)-1
+	for start < end {
+		if !isChar(s[start]) {
+			start++
+			continue
+		}
+		if !isChar(s[end]) {
+			end--
+			continue
+		}
+		if s[start] != s[end] {
+			return false
+		}
+		start++
+		end--
+
+	}
+
+	return true
+}

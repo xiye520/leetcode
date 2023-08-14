@@ -33,12 +33,13 @@ func reverseList2(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
+	curr := head
 	var prev *ListNode
-	for head != nil {
-		tmp := head.Next // 保存头节点的下一个节点，以防head.Next丢失
-		head.Next = prev // 将头节点指向前一个节点
-		prev = head      // 更新前一个节点
-		head = tmp       // 更新头节点
+	for curr != nil {
+		next := curr.Next // 保存头节点的下一个节点，以防head.Next丢失
+		curr.Next = prev  // 将头节点指向前一个节点
+		prev = curr       // 更新前一个节点
+		curr = next       // 更新头节点
 	}
 
 	return prev

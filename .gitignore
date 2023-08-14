@@ -28,6 +28,7 @@ _testmain.go
 *.prof
 *.log
 *.rar
+*algo.md
 !bin/*.exe
 /main.go
 /demo.go

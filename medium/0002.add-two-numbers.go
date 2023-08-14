@@ -48,3 +48,38 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 
 	return head.Next
 }
+
+func addTwoNumbers1(l1 *ListNode, l2 *ListNode) *ListNode {
+	head := &ListNode{}
+	curr := head
+	move := 0
+	for l1 != nil || l2 != nil {
+		var x, y int
+		if l1 != nil {
+			x = l1.Val
+		}
+		if l2 != nil {
+			y = l2.Val
+		}
+
+		sum := move + x + y
+		move = sum / 10
+		// 设置下一个节点
+		curr.Next = &ListNode{Val: sum % 10}
+		curr = curr.Next
+
+		if l1 != nil {
+			l1 = l1.Next
+		}
+		if l2 != nil {
+			l2 = l2.Next
+		}
+	}
+
+	// 进位
+	if move > 0 {
+		curr.Next = &ListNode{Val: move}
+	}
+
+	return head.Next
+}
