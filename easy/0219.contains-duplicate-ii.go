@@ -31,3 +31,18 @@ func containsNearbyDuplicate(nums []int, k int) bool {
 
 	return false
 }
+
+func containsNearbyDuplicate2(nums []int, k int) bool {
+	m := make(map[int]int, len(nums))
+	for i, v := range nums {
+		// 存在相同数字
+		if old, ok := m[v]; ok {
+			if i-old <= k {
+				return true
+			}
+		}
+		// 更新value对应的索引
+		m[v] = i
+	}
+	return false
+}
