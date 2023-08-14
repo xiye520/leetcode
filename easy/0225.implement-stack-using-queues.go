@@ -7,7 +7,7 @@ type MyStack struct {
 }
 
 /** Initialize your data structure here. */
-func Constructor() MyStack {
+func Constructor1() MyStack {
 	return MyStack{nums: []int{}}
 }
 
