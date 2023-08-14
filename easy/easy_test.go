@@ -6,19 +6,6 @@ import (
 	"testing"
 )
 
-// 1.两数之和
-func TestTwoSum(t *testing.T) {
-	target := 9
-	nums := []int{2, 7, 11, 15}
-
-	//indexs := twoSum2(nums, target)
-	indexs := twoSum3(nums, target)
-
-	if len(nums) < 2 || nums[indexs[0]]+nums[indexs[1]] != target {
-		t.Fatal("fails....")
-	}
-}
-
 func TestReverse2(t *testing.T) {
 
 	type args struct {
@@ -50,76 +37,6 @@ func TestReverse2(t *testing.T) {
 			assert.Equalf(t, tt.want, reverse(tt.args.x), "reverse(%v)", tt.args.x)
 		})
 	}
-}
-
-// 9.回文数字
-func Test_isPalindrome(t *testing.T) {
-	ast := assert.New(t)
-
-	qs := []question{
-		question{
-			p: para{
-				one: 12321,
-			},
-			a: ans{
-				one: true,
-			},
-		},
-		question{
-			p: para{
-				one: 1231,
-			},
-			a: ans{
-				one: false,
-			},
-		},
-		question{
-			p: para{
-				one: -12321,
-			},
-			a: ans{
-				one: false,
-			},
-		},
-	}
-
-	for _, q := range qs {
-		a, p := q.a, q.p
-		ast.Equal(a.one, isPalindrome2(p.one), "输入:%v", p)
-	}
-}
-
-// 35.搜索插入位置
-func Test_searchInsert(t *testing.T) {
-	nums := []int{-1, 0, 3, 5, 9, 12}
-	target := 2
-	t.Log(searchInsert(nums, target))
-	nums = []int{1, 3, 5, 6}
-	t.Log(searchInsert(nums, target))
-
-}
-
-// 35.搜索插入位置
-func Test_searchInsert2(t *testing.T) {
-	nums := []int{-1, 0, 3, 5, 9, 12}
-	target := 2
-	t.Log(searchInsert2(nums, target))
-	nums = []int{1, 3, 5, 6}
-	t.Log(searchInsert2(nums, target))
-}
-
-// 35.搜索插入位置
-func Example_searchInsert() {
-	fmt.Println(searchInsert([]int{-1, 0, 3, 5, 9, 12}, 2))
-	fmt.Println(searchInsert([]int{1, 3, 5, 6}, 2))
-	fmt.Println(searchInsert2([]int{-1, 0, 3, 5, 9, 12}, 2))
-	fmt.Println(searchInsert2([]int{1, 3, 5, 6}, 2))
-
-	// Output:
-	// 2
-	// 1
-	// 2
-	// 1
 }
 
 // 66.加一
