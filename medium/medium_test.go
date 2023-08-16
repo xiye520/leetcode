@@ -84,11 +84,6 @@ func Test_searchRange2(t *testing.T) {
 	}
 }
 
-// 55.跳跃游戏
-func Test_canJump2(t *testing.T) {
-	test_canJump()
-}
-
 // 78.子集
 func Test_subsets(t *testing.T) {
 	nums := []int{1, 2, 3}

@@ -1,10 +1,5 @@
 package medium
 
-import (
-	"fmt"
-	"github.com/xiye520/leetcode/util"
-)
-
 /*
 55. 跳跃游戏
 
@@ -62,24 +57,10 @@ func canJump2(nums []int) bool {
 		if i > maxIndex {
 			return false
 		}
-		maxIndex = util.Max(maxIndex, i+nums[i])
+		if maxIndex < nums[i]+i {
+			maxIndex = nums[i] + i
+		}
 	}
 
 	return true
-}
-
-/*
-[2,3,1,1,4] 		true
-[3,2,1,0,4] 		false
-[0,3,1,0,4,3,2,0,1] false
-[0] 				true
-[2,0,0,3,0,1,4,4] 	false
-*/
-func test_canJump() {
-	//nums := []int{2, 0, 0, 3, 0, 1, 4, 4}
-	fmt.Println(canJump2([]int{2, 3, 1, 1, 4}))
-	fmt.Println(canJump2([]int{3, 2, 1, 0, 4}))
-	fmt.Println(canJump2([]int{0, 3, 1, 0, 4, 3, 2, 0, 1}))
-	fmt.Println(canJump2([]int{0}))
-	fmt.Println(canJump2([]int{2, 0, 0, 3, 0, 1, 4, 4}))
 }
