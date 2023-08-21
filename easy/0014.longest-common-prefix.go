@@ -55,18 +55,14 @@ func longestCommonPrefix2(strs []string) string {
 
 // 取出两个字符串中的最长公共前缀
 func lcp(str1, str2 string) string {
-	maxL := min(len(str1), len(str2))
+	maxL := len(str1)
+	if maxL > len(str2) {
+		maxL = len(str2)
+	}
 	for i := 0; i < maxL; i++ {
 		if str1[i] != str2[i] {
 			return str1[:i]
 		}
 	}
 	return str1[:maxL]
-}
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
 }

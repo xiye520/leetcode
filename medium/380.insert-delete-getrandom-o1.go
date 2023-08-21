@@ -36,10 +36,11 @@ type RandomizedSet struct {
 	m    map[int]int
 }
 
-func Constructor() RandomizedSet {
-	return RandomizedSet{[]int{}, make(map[int]int)}
-}
+//func Constructor() RandomizedSet {
+//	return RandomizedSet{[]int{}, make(map[int]int)}
+//}
 
+// Insert 当元素 val 不存在时，向集合中插入该项，并返回 true ；否则，返回 false 。
 func (this *RandomizedSet) Insert(val int) bool {
 	if _, ok := this.m[val]; ok {
 		return false
@@ -51,21 +52,22 @@ func (this *RandomizedSet) Insert(val int) bool {
 	return true
 }
 
+// Remove 当元素 val 存在时，从集合中移除该项，并返回 true ；否则，返回 false 。
 func (this *RandomizedSet) Remove(val int) bool {
-	id, ok := this.m[val]
+	index, ok := this.m[val]
 	if !ok {
 		return false
 	}
 	// 要剔除的数跟最后一个元素互换位置
-	this.m[this.nums[len(this.nums)-1]] = id
-	this.nums[id] = this.nums[len(this.nums)-1]
+	this.m[this.nums[len(this.nums)-1]] = index
+	this.nums[index] = this.nums[len(this.nums)-1]
 	delete(this.m, val)
 	// 剔除最后一个元素
 	this.nums = this.nums[:len(this.nums)-1]
 	return true
-
 }
 
+// GetRandom 随机返回现有集合中的一项（测试用例保证调用此方法时集合中至少存在一个元素）。每个元素应该有 相同的概率 被返回。
 func (this *RandomizedSet) GetRandom() int {
 	return this.nums[rand.Intn(len(this.nums))]
 }

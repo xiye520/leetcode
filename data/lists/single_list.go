@@ -1,25 +1,25 @@
 package main
 
-//链表实现
+// 链表实现
 import (
 	"fmt"
 )
 
-//定义错误常量
+// ERROR 定义错误常量
 const (
 	ERROR = -1000000001
 )
 
-//定义元素类型
+// Element 定义元素类型
 type Element int64
 
-//定义节点
+// LinkNode 定义节点
 type LinkNode struct {
 	Data Element   //数据域
 	Next *LinkNode //指针域，指向下一个节点
 }
 
-//函数接口
+// LinkNoder 函数接口
 type LinkNoder interface {
 	Add(head *LinkNode, new *LinkNode)              //后面添加
 	Delete(head *LinkNode, index int)               //删除指定index位置元素
@@ -29,7 +29,7 @@ type LinkNoder interface {
 	GetData(head *LinkNode, index int) Element      //获取指定index位置的元素
 }
 
-//添加 头结点，数据
+// Add 添加 头结点，数据
 func Add(head *LinkNode, data Element) {
 	point := head //临时指针
 	for point.Next != nil {
@@ -47,7 +47,7 @@ func Add(head *LinkNode, data Element) {
 
 }
 
-//删除 头结点 index 位置
+// Delete 删除 头结点 index 位置
 func Delete(head *LinkNode, index int) Element {
 	//判断index合法性
 	if index < 0 || index > GetLength(head) {
@@ -64,7 +64,7 @@ func Delete(head *LinkNode, index int) Element {
 	}
 }
 
-//插入 头结点 index位置 data元素
+// Insert 插入 头结点 index位置 data元素
 func Insert(head *LinkNode, index int, data Element) {
 	//检验index合法性
 	if index < 0 || index > GetLength(head) {
@@ -81,7 +81,7 @@ func Insert(head *LinkNode, index int, data Element) {
 	}
 }
 
-//获取长度 头结点
+// GetLength 获取长度 头结点
 func GetLength(head *LinkNode) int {
 	point := head
 	var length int
@@ -92,7 +92,7 @@ func GetLength(head *LinkNode) int {
 	return length
 }
 
-//搜索 头结点 data元素
+// Search 搜索 头结点 data元素
 func Search(head *LinkNode, data Element) {
 	point := head
 	index := 0
@@ -112,7 +112,7 @@ func Search(head *LinkNode, data Element) {
 	}
 }
 
-//获取data 头结点 index位置
+// GetData 获取data 头结点 index位置
 func GetData(head *LinkNode, index int) Element {
 	point := head
 	if index < 0 || index > GetLength(head) {
@@ -126,7 +126,7 @@ func GetData(head *LinkNode, index int) Element {
 	}
 }
 
-//遍历 头结点
+// Traverse 遍历 头结点
 func Traverse(head *LinkNode) {
 	point := head.Next
 	for point.Next != nil {
