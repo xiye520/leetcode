@@ -31,11 +31,11 @@ import (
 原文链接：https://blog.csdn.net/heart66_A/article/details/83714168
 */
 
-//abcabcbb
-//判断子串是否合法
-//内嵌一个循环判断是否有重复子串
-//如果有个重复子串，则start和end的位置增加
-//如果不重复则，继续增加子串的数量
+// abcabcbb
+// 判断子串是否合法
+// 内嵌一个循环判断是否有重复子串
+// 如果有个重复子串，则start和end的位置增加
+// 如果不重复则，继续增加子串的数量
 func lengthOfLongestSubstring(s string) int {
 	if s == "" {
 		return 0
@@ -82,7 +82,7 @@ func lengthOfLongestSubstring2(s string) int {
 	return counts
 }
 
-//找出子串不重复的
+// 找出子串不重复的
 func allUnique(s string, start, end int) bool {
 	//会截取start -> end-1位置的下标
 	s = s[start:end]
@@ -163,4 +163,25 @@ func lengthOfLongestSubstring5(s string) int {
 		location[s[i]] = i
 	}
 	return maxLen
+}
+
+func lengthOfLongestSubstring6(s string) int {
+	ans := 0
+	m := make(map[uint8]bool, len(s))
+	end := 0
+	for i := 0; i < len(s); i++ {
+
+		if i != 0 {
+			// 重复
+			delete(m, s[i-1])
+		}
+		for end < len(s) && !m[s[end]] {
+			m[s[end]] = true
+			end++
+		}
+
+		ans = max(ans, end-i)
+	}
+
+	return ans
 }

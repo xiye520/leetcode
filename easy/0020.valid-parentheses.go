@@ -63,10 +63,12 @@ func isValid(s string) bool {
 	return top == 0 // 最终的栈要为零
 }
 
-/*结题思路：
+/*
+结题思路：
 1.用一个切片c保存未匹配的字符
 2.symbol用来保存右括号与左括号的对应关系，因为只有右括号出现的时候才可能匹配到左括号，从切片c中出栈
-3.判断条件：栈内有字符&&当前字符与栈顶字符匹配*/
+3.判断条件：栈内有字符&&当前字符与栈顶字符匹配
+*/
 func isValid2(s string) bool {
 	var c []byte
 	symbol := map[byte]byte{
@@ -87,4 +89,34 @@ func isValid2(s string) bool {
 		c = append(c, byte(value))
 	}
 	return len(c) == 0
+}
+
+func isValid3(s string) bool {
+	if len(s)%2 != 0 {
+		return false
+	}
+	stack := make([]int32, len(s)/2+1)
+	top := 0
+	for _, char := range s {
+		switch char {
+		case '[', '{':
+			stack[top] = char + 2
+			top++
+		case '(':
+			stack[top] = char + 1
+			top++
+		case ')', ']', '}':
+			if top <= 0 || stack[top-1] != char {
+				return false
+			}
+			top--
+		default:
+			return false
+		}
+		if top > len(s)/2 {
+			return false
+		}
+	}
+
+	return top == 0
 }

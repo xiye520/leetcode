@@ -17,7 +17,7 @@ import "log"
 */
 
 func ThreeSum2(nums []int) [][]int {
-	nums = sort(nums)
+	nums = sortSlice(nums)
 	var r [][]int
 	l := len(nums)
 	for i := 0; i < l; i++ {
@@ -42,7 +42,7 @@ func ThreeSum2(nums []int) [][]int {
 	return r
 }
 
-func sort(nums []int) []int {
+func sortSlice(nums []int) []int {
 	for i := 0; i < len(nums)-1; i++ {
 		for j := i + 1; j < len(nums); j++ {
 			if nums[i] > nums[j] {
@@ -68,9 +68,8 @@ func sort(nums []int) []int {
 //
 //}
 
-//
 func ThreeSum3(nums []int) [][]int {
-	nums = sort(nums)
+	nums = sortSlice(nums)
 	var r [][]int
 	l := len(nums)
 	for i := 0; i < l-2; i++ {
