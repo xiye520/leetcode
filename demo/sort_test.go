@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-//1.冒泡排序，向后移动，从小到大排序,其思想为相邻两个数进行比较，将较大的滞后，时间复杂度O(N^2
+// 1.冒泡排序，向后移动，从小到大排序,其思想为相邻两个数进行比较，将较大的滞后，时间复杂度O(N^2
 func BubbleSort(array []int) []int {
 	for i := 0; i < len(array); i++ {
 		for j := 0; j < len(array)-1-i; j++ {
@@ -18,7 +18,7 @@ func BubbleSort(array []int) []int {
 	return array
 }
 
-//2.选择排序，从后面找个最小的放在前面的位置，从小到大排序,时间复杂度O(N^2)
+// 2.选择排序，从后面找个最小的放在前面的位置，从小到大排序,时间复杂度O(N^2)
 func SelectSort(array []int) []int {
 	for i := 0; i < len(array)-1; i++ {
 		for j := i + 1; j < len(array); j++ {
@@ -31,7 +31,7 @@ func SelectSort(array []int) []int {
 	return array
 }
 
-//1.冒泡排序，向后移动，从小到大排序,其思想为相邻两个数进行比较，将较大的滞后，时间复杂度O(N^2
+// 1.冒泡排序，向后移动，从小到大排序,其思想为相邻两个数进行比较，将较大的滞后，时间复杂度O(N^2
 func BubbleSort1(array []int) []int {
 	for i := 0; i < len(array); i++ {
 		for j := 0; j < len(array)-1-i; j++ {
@@ -44,7 +44,7 @@ func BubbleSort1(array []int) []int {
 	return array
 }
 
-//2.选择排序，从后面找个最小的放在前面的位置，从小到大排序,时间复杂度O(N^2)
+// 2.选择排序，从后面找个最小的放在前面的位置，从小到大排序,时间复杂度O(N^2)
 func SelectSort1(array []int) []int {
 	for i := 0; i < len(array)-1; i++ {
 		for j := i + 1; j < len(array); j++ {
@@ -113,7 +113,7 @@ func Test_QuickSort1(t *testing.T) {
 func Test_QuickSort2(t *testing.T) {
 	values := []int{5, 4, 3, 2, 1}
 	//QuickSort2(values)
-	quickSort222(values, 0, len(values)-1)
+	quickSort6(values, 0, len(values)-1)
 	if values[0] != 1 || values[1] != 2 || values[2] != 3 || values[3] != 4 ||
 		values[4] != 5 {
 		t.Fatal("QuickSort() failed. Got", values, "Expected 1 2 3 4 5")

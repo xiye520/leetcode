@@ -45,8 +45,8 @@ func QuickSort(values []int) {
 	quickSort111(values, 0, len(values)-1)
 }
 
-//快速排序方式二
-func quickSort222(sortArray []int, left, right int) {
+// 快速排序方式二
+func quickSort6(sortArray []int, left, right int) {
 	if left < right {
 		key := sortArray[(left+right)/2]
 		i := left
@@ -65,13 +65,14 @@ func quickSort222(sortArray []int, left, right int) {
 			sortArray[i], sortArray[j] = sortArray[j], sortArray[i]
 		}
 
-		quickSort222(sortArray, left, i-1)
-		quickSort222(sortArray, j+1, right)
+		quickSort6(sortArray, left, i-1)
+		quickSort6(sortArray, j+1, right)
 	}
 }
 
-func QuickSort2(values []int) {
-	quickSort222(values, 0, len(values)-1)
+func QuickSort2(values []int) []int {
+	quickSort6(values, 0, len(values)-1)
+	return values
 }
 
 // -----------------------------------
@@ -140,8 +141,8 @@ func quickSort2(a []int, left, right int) {
 	quickSort2(a, mid+1, right)
 }
 
-//快速排序  找到一个数,左边都比他小,右边都比他大
-//38, 1, 4, 5, 10
+// 快速排序  找到一个数,左边都比他小,右边都比他大
+// 38, 1, 4, 5, 10
 func partion(a []int, i, j int) int {
 	//var i ,j = left,right
 	//1.当左边<右边

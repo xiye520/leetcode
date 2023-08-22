@@ -28,12 +28,13 @@ package easy
 
 func hammingWeight(num uint32) int {
 	count := 0
-	for num > 0 {
-		if num&1 == 1 {
+	for num != 0 {
+		// 与1做 与运算，如果结果不为零则代表当前最低位非0
+		if num&1 != 0 {
 			count++
 		}
+		// 全部右移一位
 		num = num >> 1
 	}
-
 	return count
 }
