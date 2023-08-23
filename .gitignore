@@ -30,6 +30,6 @@ _testmain.go
 *.rar
 *algo.md
 !bin/*.exe
-/main.go
+*main.go
 /demo.go
 /xiye

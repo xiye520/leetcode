@@ -42,7 +42,7 @@ func GetBetweenDates(sdate, edate string) []string {
 	return d
 }
 
-func main() {
+func print() {
 	dates := GetBetweenDates("19700101", time.Now().Format("20060102"))
 	s2 := make([]string, 0, 10)
 	for i := range dates {
