@@ -73,3 +73,42 @@ func canCompleteCircuit(gas []int, cost []int) int {
 
 	return start
 }
+
+func canCompleteCircuit2(gas []int, cost []int) int {
+	// bottom为最低点油量，sum为当前油量，startId为起点前一个点
+	bottom, sum, startId := 0, 0, -1
+	for i := 0; i < len(gas); i++ {
+		sum += gas[i] - cost[i]
+		if sum < bottom {
+			// 油量触底，则更换新的底部值，同时起点改为以当前点开始
+			bottom = sum
+			startId = i
+		}
+	}
+	if sum < 0 {
+		return -1
+	}
+	return (startId + 1) % len(gas)
+}
+
+// 官方
+func canCompleteCircuit3(gas []int, cost []int) int {
+	for i, n := 0, len(gas); i < n; {
+		sumOfGas, sumOfCost, cnt := 0, 0, 0
+		for cnt < n {
+			j := (i + cnt) % n
+			sumOfGas += gas[j]
+			sumOfCost += cost[j]
+			if sumOfCost > sumOfGas {
+				break
+			}
+			cnt++
+		}
+		if cnt == n {
+			return i
+		} else {
+			i += cnt + 1
+		}
+	}
+	return -1
+}
