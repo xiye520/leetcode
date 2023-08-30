@@ -25,30 +25,6 @@ func Test_myAtoi2(t *testing.T) {
 	}
 }
 
-// 11.盛最多水的容器
-func Test_maxArea(t *testing.T) {
-	result := maxArea([]int{1, 8, 6, 2, 5, 4, 8, 3, 7})
-	if result != 49 {
-		t.Fatalf("maxArea not match 49,it is: %d", result)
-	}
-	t.Logf("maxArea: %d", result)
-}
-
-// 15.三数之和
-func TestThreeSum3(t *testing.T) {
-	//nums := []int{-1, 0, 1, 2, -1, -4}
-	//nums := []int{1, -1, -1, 0}
-	nums := []int{-4, -2, 1, -5, -4, -4, 4, -2, 0, 4, 0, -2, 3, 1, -5, 0}
-	r := ThreeSum3(nums)
-	for _, v := range r {
-		t.Log(v)
-	}
-
-	t.Log("---------")
-	t.Log(r)
-
-}
-
 // 34. 在排序数组中查找元素的第一个和最后一个位置
 func Test_searchRange(t *testing.T) {
 	arr := []int{5, 7, 7, 8, 8, 10}
