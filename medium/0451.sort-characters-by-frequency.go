@@ -59,6 +59,22 @@ func frequencySort(s string) string {
 
 // 桶排序
 func frequencySort2(s string) string {
+	m := make(map[byte]int, len(s))
+	maxCount := 0
+	for i := range s {
+		m[s[i]]++
+		maxCount = max(maxCount, m[s[i]])
+	}
+	bucket := make([][]byte, maxCount+1)
+	for k, v := range m {
+		bucket[v] = append(bucket[v], k)
+	}
+	ans := make([]byte, 0, len(s))
+	for i := maxCount; i > 0; i-- {
+		for _, ch := range bucket[i] {
+			ans = append(ans, bytes.Repeat([]byte{ch}, i)...)
+		}
+	}
 
-	return s
+	return string(ans)
 }
