@@ -14,3 +14,11 @@ func min(a, b int) int {
 
 	return b
 }
+
+// abs 求绝对值，返回正整数
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
