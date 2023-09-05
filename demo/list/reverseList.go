@@ -124,7 +124,6 @@ func removeDuplicate(head *ListNode) *ListNode {
 		prev = prev.Next
 		curr = curr.Next
 	}
-	printList(dummy.Next)
 	return dummy.Next
 }
 
@@ -147,7 +146,6 @@ func reverseAndRemoveDuplicate(head *ListNode) *ListNode {
 		//prev = curr
 		//curr = next
 	}
-	printList(prev)
 	return prev
 }
 
@@ -172,13 +170,13 @@ func main() {
 	//reverseAndRemoveDuplicate(head)
 
 	// 4.指定区间链表反转
-	//reverseBetween3(head, 2, 4)
+	//reverseBetween(head, 2, 4)
 
 	// 5.删除链表的节点
 	//deleteNode(head, 1)
 
 	// 6.K 个一组翻转链表
-	printList(reverseKGroup1(head, 3))
+	printList(reverseKGroup(head, 3))
 
 }
 
@@ -198,7 +196,7 @@ func printList(node *ListNode) {
 }
 
 // 4.指定区间链表反转
-func reverseBetween3(head *ListNode, m int, n int) *ListNode {
+func reverseBetween(head *ListNode, m int, n int) *ListNode {
 	if head == nil {
 		return nil
 	}
@@ -213,10 +211,8 @@ func reverseBetween3(head *ListNode, m int, n int) *ListNode {
 	end := start.Next
 	for i := m; i < n; i++ {
 		end.Next, end.Next.Next, start.Next = end.Next.Next, start.Next, end.Next
-
 	}
 
-	printList(dummy.Next)
 	return dummy.Next
 }
 
@@ -241,12 +237,11 @@ func deleteNode(head *ListNode, val int) *ListNode {
 		prev = prev.Next
 		curr = curr.Next
 	}
-	printList(dummy.Next)
 	return dummy.Next
 }
 
 // 6.K 个一组翻转链表
-func reverseKGroup1(head *ListNode, k int) *ListNode {
+func reverseKGroup(head *ListNode, k int) *ListNode {
 	arr := make([]int, 0, 10)
 	for head != nil {
 		arr = append(arr, head.val)
@@ -254,6 +249,23 @@ func reverseKGroup1(head *ListNode, k int) *ListNode {
 	}
 	reverseKNumbers(arr, k)
 	newHead := buildListNode(arr)
-	printList(newHead)
 	return newHead
+}
+
+// 7.两两交换链表中的节点
+func swapPairs(head *ListNode) *ListNode {
+	var dummy ListNode
+	dummy.Next = head
+	curr := &dummy
+	for curr.Next != nil && curr.Next.Next != nil {
+		node1 := curr.Next
+		node2 := curr.Next.Next
+
+		curr.Next = node2
+		node1.Next = node2.Next
+		node2.Next = node1
+		curr = node1
+	}
+
+	return dummy.Next
 }
