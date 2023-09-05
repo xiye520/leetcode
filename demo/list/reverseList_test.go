@@ -150,6 +150,39 @@ func ExampleDeleteNode() {
 	// 1 -> 3 -> 4 -> 5
 }
 
+// 5.删除链表的节点
+func ExampleDeleteNode1() {
+	head := generateListNode()
+	printList(head)
+	printList(deleteNode1(head, 2))
+
+	// output:
+	// 1 -> 2 -> 3 -> 4 -> 5
+	// 1 -> 3 -> 4 -> 5
+}
+
+// 5.删除链表的节点
+func ExampleDeleteNode2() {
+	head := generateListNode()
+	printList(head)
+	printList(deleteNode2(head, 2))
+
+	// output:
+	// 1 -> 2 -> 3 -> 4 -> 5
+	// 1 -> 3 -> 4 -> 5
+}
+
+// 5.删除链表的节点
+func ExampleDeleteNode3() {
+	head := generateListNode()
+	printList(head)
+	printList(deleteNode3(head, 2))
+
+	// output:
+	// 1 -> 2 -> 3 -> 4 -> 5
+	// 1 -> 3 -> 4 -> 5
+}
+
 // 6.K 个一组翻转链表
 func ExampleReverseKGroup() {
 	head := generateListNode()

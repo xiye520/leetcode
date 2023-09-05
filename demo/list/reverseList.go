@@ -240,6 +240,51 @@ func deleteNode(head *ListNode, val int) *ListNode {
 	return dummy.Next
 }
 
+// 单指针
+func deleteNode1(head *ListNode, val int) *ListNode {
+	if head.val == val {
+		return head.Next
+	}
+	pre := head
+	for pre.Next != nil && pre.Next.val != val {
+		pre = pre.Next
+	}
+	// 上面循环结束后，pre的下一个元素就是要删除的节点
+	if pre.Next != nil {
+		pre.Next = pre.Next.Next
+	}
+
+	return head
+}
+
+// 双指针
+func deleteNode2(head *ListNode, val int) *ListNode {
+	if head.val == val {
+		return head.Next
+	}
+
+	pre, cur := head, head
+	for cur != nil && cur.val != val {
+		pre, cur = cur, cur.Next
+	}
+	if cur.Next != nil {
+		pre.Next = cur.Next
+	}
+
+	return head
+}
+
+// 递归
+func deleteNode3(head *ListNode, val int) *ListNode {
+	if head.val == val {
+		return head.Next
+	}
+
+	head.Next = deleteNode3(head.Next, val)
+
+	return head
+}
+
 // 6.K 个一组翻转链表
 func reverseKGroup(head *ListNode, k int) *ListNode {
 	arr := make([]int, 0, 10)
