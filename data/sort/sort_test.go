@@ -2,6 +2,7 @@ package sort
 
 import (
 	"fmt"
+	"reflect"
 	"testing"
 )
 
@@ -76,8 +77,49 @@ func TestSelectSort(t *testing.T) {
 }
 
 func TestQuickSort(t *testing.T) {
-	//array := []int{12, 84, 5, 63, 37, 9, 56, 1399}
-	fmt.Println("befor sort array:", array)
-	QuickSort(array)
-	fmt.Println("after sort array:", array)
+	type args struct {
+		arr []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		{
+			"QuickSort",
+			args{[]int{5, 4, 3, 2, 1}},
+			[]int{1, 2, 3, 4, 5},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := QuickSort(tt.args.arr); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("QuickSort() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestQuickSort2(t *testing.T) {
+	type args struct {
+		arr []int
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		{
+			"QuickSort2",
+			args{[]int{5, 4, 3, 2, 1}},
+			[]int{1, 2, 3, 4, 5},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := QuickSort2(tt.args.arr); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("QuickSort() = %v, want %v", got, tt.want)
+			}
+		})
+	}
 }

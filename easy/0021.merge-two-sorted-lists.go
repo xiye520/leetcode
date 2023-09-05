@@ -10,10 +10,6 @@ package easy
 
 链接：https://leetcode-cn.com/problems/merge-two-sorted-lists
 */
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
 
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	if l1 == nil {

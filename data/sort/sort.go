@@ -1,12 +1,11 @@
-/*
-选择和冒泡的区别：
-	选择排序是走一趟找出来一个最小的值和第一个同学交换位置。
-	而冒泡排序是相邻同学比较高低，这样走一趟，最高个就沉到末尾了。
-
-*/
+// Package sort
+// 选择和冒泡的区别：
+//
+//	选择排序是走一趟找出来一个最小的值和第一个同学交换位置。
+//	而冒泡排序是相邻同学比较高低，这样走一趟，最高个就沉到末尾了。
 package sort
 
-// 1.1冒泡排序，向后移动，从小到大排序,其思想为相邻两个数进行比较，将较大的滞后，时间复杂度O(N^2
+// BubbleSort 1.1冒泡排序，向后移动，从小到大排序,其思想为相邻两个数进行比较，将较大的滞后，时间复杂度O(N^2
 func BubbleSort(array []int) {
 	/*
 		它重复地走访过要排序的元素列，依次比较两个相邻的元素，如果他们的顺序（如从大到小、首字母从A到Z）错误就把他们交换过来。
@@ -59,7 +58,7 @@ func bubbleSort3(array []int) {
 	return
 }
 
-//2.选择排序，从后面找个最小的放在前面的位置，从小到大排序,时间复杂度O(N^2)
+// SelectSort 2.选择排序，从后面找个最小的放在前面的位置，从小到大排序,时间复杂度O(N^2)
 func SelectSort(array []int) {
 	/*
 		选择排序（Selection sort）是一种简单直观的排序算法。它的工作原理是：第一次从待排序的数据元素中选出最小（或最大）的一个元素，
@@ -76,14 +75,87 @@ func SelectSort(array []int) {
 	return
 }
 
-//3.快速排序
-func QuickSort(array []int) {
-
-	return
+func QuickSort(arr []int) []int {
+	quickSort(arr, 0, len(arr)-1)
+	return arr
 }
 
-//4.堆排序
-func HeapSort(array []int) {
+// 3.快速排序
+func quickSort(arr []int, left, right int) {
+	if left >= right {
+		return
+	}
+	pivot := partition(arr, left, right)
+	quickSort(arr, left, pivot-1)
+	quickSort(arr, pivot+1, right)
+}
 
-	return
+// partition函数实现了分区操作，将数组分成两部分，左边的部分小于pivot，右边的部分大于等于pivot。
+// 在partition函数中，i表示左边部分的最后一个元素的下标，j表示当前正在处理的元素的下标，
+// 如果arr[j]小于pivot，则将arr[i]和arr[j]交换，并将i加1，保证左边部分的元素都小于pivot。
+// 最后将arr[i]和arr[right]交换，将pivot放到正确的位置上。
+func partition(arr []int, left, right int) int {
+	pivot := arr[right]
+	i := left
+	for j := left; j < right; j++ {
+		if arr[j] < pivot {
+			arr[i], arr[j] = arr[j], arr[i]
+			i++
+		}
+	}
+	arr[i], arr[right] = arr[right], arr[i]
+	return i
+}
+
+func QuickSort2(values []int) []int {
+	quickSort3(values, 0, len(values)-1)
+	return values
+}
+
+func quickSort2(arr []int, left, right int) {
+	if left < right {
+		i := left
+		j := right
+		key := arr[(left+right)/2]
+
+		for {
+			if arr[i] < key {
+				i++
+			}
+			if arr[j] > key {
+				j--
+			}
+			if i >= j {
+				break
+			}
+			arr[i], arr[j] = arr[j], arr[i]
+		}
+
+		quickSort2(arr, left, i)
+		quickSort2(arr, j+1, right)
+	}
+}
+
+func quickSort3(arr []int, left, right int) {
+	if left < right {
+		i := left
+		j := right
+		pivot := arr[(left+right)/2]
+
+		for {
+			if arr[i] < pivot {
+				i++
+			}
+			if arr[j] > pivot {
+				j--
+			}
+			if i >= j {
+				break
+			}
+			arr[i], arr[j] = arr[j], arr[i]
+		}
+
+		quickSort3(arr, left, i)
+		quickSort3(arr, j+1, right)
+	}
 }

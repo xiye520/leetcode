@@ -14,3 +14,8 @@ func min(a, b int) int {
 
 	return b
 }
+
+type ListNode struct {
+	val  int
+	Next *ListNode
+}

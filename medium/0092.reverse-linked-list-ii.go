@@ -53,3 +53,24 @@ type ListNode struct {
 	Val  int
 	Next *ListNode
 }
+
+func reverseBetween3(head *ListNode, m int, n int) *ListNode {
+	if head == nil {
+		return nil
+	}
+
+	var dummy ListNode
+	dummy.Next = head
+	start := &dummy
+	for i := 0; i < m; i++ {
+		start = start.Next
+	}
+
+	end := start.Next
+	for i := m; i < n; i++ {
+		end.Next, end.Next.Next, start.Next = end.Next.Next, start.Next, end.Next
+
+	}
+
+	return dummy.Next
+}

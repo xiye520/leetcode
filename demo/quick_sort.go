@@ -70,7 +70,7 @@ func quickSort6(sortArray []int, left, right int) {
 	}
 }
 
-func QuickSort2(values []int) []int {
+func QuickSort6(values []int) []int {
 	quickSort6(values, 0, len(values)-1)
 	return values
 }

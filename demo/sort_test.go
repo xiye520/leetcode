@@ -112,7 +112,7 @@ func Test_QuickSort1(t *testing.T) {
 // go test -v -test.run Test_QuickSort2
 func Test_QuickSort2(t *testing.T) {
 	values := []int{5, 4, 3, 2, 1}
-	//QuickSort2(values)
+	//QuickSort6(values)
 	quickSort6(values, 0, len(values)-1)
 	if values[0] != 1 || values[1] != 2 || values[2] != 3 || values[3] != 4 ||
 		values[4] != 5 {
