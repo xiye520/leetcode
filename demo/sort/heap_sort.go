@@ -7,7 +7,7 @@ https://blog.csdn.net/MoreWin...
 // i为处理节点,其是从孩子节点向下影响堆。
 // n为堆的节点数
 // 其存在一个前提假设，就是两个孩子都已经是大顶堆
-package main
+package sort
 
 func MaxHeapFixDown(list []int, i int, n int) {
 	var (

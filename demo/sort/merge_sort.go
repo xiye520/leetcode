@@ -1,5 +1,5 @@
 // 1.归并排序
-package main
+package sort
 
 import (
 	"fmt"
