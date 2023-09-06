@@ -11,32 +11,18 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func reverseList3(head *ListNode) *ListNode {
-	if head == nil || head.Next == nil {
-		return head
-	}
-
-	var prev *ListNode
-	curr := head
-	for curr != nil {
-		//prev, curr, curr.Next = curr, curr.Next, prev
-		next := curr.Next
-		curr.Next = prev
-		prev = curr
-		curr = next
-	}
-	return prev
-}
-
 func reverseList2(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
 
 	var prev *ListNode //  前一个节点
-	cur := head        //  当前节点
-	for cur != nil {
-		cur.Next, prev, cur = prev, cur, cur.Next
+	curr := head       //  当前节点
+	for curr != nil {
+		next := curr.Next
+		curr.Next = prev
+		prev = curr
+		curr = next
 	}
 	return prev
 }
@@ -59,20 +45,6 @@ func reverseList(head *ListNode) *ListNode {
 	return prev
 }
 
-func reverseList4(head *ListNode) *ListNode {
-	var prev *ListNode
-	curr := head
-	for curr != nil {
-		next := curr.Next
-		curr.Next = prev
-		prev = curr
-		curr = next
-		//prev, curr, curr.Next = curr, curr.Next, prev
-	}
-
-	return prev
-}
-
 func reverseList5(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
@@ -89,19 +61,22 @@ func reverseList5(head *ListNode) *ListNode {
 	使用头插法进行插入
 	这样只需遍历一次原列表O(n)，并且空间复杂度仅为O(1)
 */
-func reverse(node *ListNode) *ListNode {
-	p := node.Next  //保存原链表的后继
-	node.Next = nil //将原链表的后继置为空
-	for p != nil {  //循环进行头插法的过程
-		q := p
-		p = p.Next //指向后面的位置，用作下一轮使用
-		//下面两句是用来实现头插法的
-		q.Next = node.Next
-		node.Next = q
+func reverse(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
 	}
 
-	printList(node)
-	return node
+	var dummy *ListNode = nil
+	var curr *ListNode = nil
+	for head != nil {
+		curr = head
+		// 将 curr 从 head 中摘除
+		head = head.Next
+		// 将 curr 插入到 dummy 的头部
+		curr.Next = dummy
+		dummy = curr
+	}
+	return dummy
 }
 
 // 2.链表去重

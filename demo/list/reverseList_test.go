@@ -42,16 +42,6 @@ func TestMain1(t *testing.T) {
 	printList(reverseKGroup(head, 3))
 }
 
-func ExampleReverseList3() {
-	head := generateListNode()
-	printList(head)
-	printList(reverseList3(head))
-
-	// output:
-	// 1 -> 2 -> 3 -> 4 -> 5
-	// 5 -> 4 -> 3 -> 2 -> 1
-}
-
 func ExampleReverseList2() {
 	head := generateListNode()
 	printList(head)
@@ -72,20 +62,20 @@ func ExampleReverseList() {
 	// 5 -> 4 -> 3 -> 2 -> 1
 }
 
-func ExampleReverseList4() {
+func ExampleReverseList5() {
 	head := generateListNode()
 	printList(head)
-	printList(reverseList4(head))
+	printList(reverseList5(head))
 
 	// output:
 	// 1 -> 2 -> 3 -> 4 -> 5
 	// 5 -> 4 -> 3 -> 2 -> 1
 }
 
-func ExampleReverseList5() {
+func ExampleReverse() {
 	head := generateListNode()
 	printList(head)
-	printList(reverseList5(head))
+	printList(reverse(head))
 
 	// output:
 	// 1 -> 2 -> 3 -> 4 -> 5
