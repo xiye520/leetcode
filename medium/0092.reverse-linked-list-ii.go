@@ -114,31 +114,3 @@ func reverseBetween4(head *ListNode, left, right int) *ListNode {
 	}
 	return dummyNode.Next
 }
-
-func reverseBetween5(head *ListNode, left int, right int) *ListNode {
-	if head == nil {
-		return nil
-	}
-
-	nodes := make([]*ListNode, 0, 10)
-	curr := head
-	for curr != nil {
-		nodes = append(nodes, curr)
-		curr = curr.Next
-	}
-	start := left - 1
-	end := right - 1
-	for start < end {
-		nodes[start], nodes[end] = nodes[end], nodes[start]
-		start++
-		end--
-	}
-	for i := left; i < right; i++ {
-		nodes[i-1].Next = nodes[i]
-	}
-	if right < len(nodes)-1 {
-		nodes[right].Next = nodes[right+1]
-	}
-
-	return head
-}

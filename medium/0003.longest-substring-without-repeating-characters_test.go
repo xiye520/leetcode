@@ -32,7 +32,7 @@ func Test_lengthOfLongestSubstring6(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			assert.Equalf(t, tt.want, lengthOfLongestSubstring6(tt.args.s), "lengthOfLongestSubstring6(%v)", tt.args.s)
+			assert.Equalf(t, tt.want, lengthOfLongestSubstring4(tt.args.s), "lengthOfLongestSubstring6(%v)", tt.args.s)
 		})
 	}
 }

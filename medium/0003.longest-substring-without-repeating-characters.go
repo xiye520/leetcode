@@ -135,10 +135,10 @@ func lengthOfLongestSubstring4(s string) int {
 	for j, i := 0, 0; j < n; j++ {
 		if _, ok := m[string(s[j])]; ok {
 			//发现重复的，则重新选择一个i，这个i停留在出现重复的前一位置
-			i = int(math.Max(float64(m[string(s[j])]), float64(i))) //这里的i则为下标
+			i = max(m[string(s[j])], i) //这里的i则为下标
 		}
 		//每次计算j-i+1的记录，j为字符串的下标，i为下标，重复，i则从重复位置前一位开始
-		ans = int(math.Max(float64(ans), float64(j-i+1)))
+		ans = max(ans, j-i+1)
 		m[string(s[j])] = j + 1
 	}
 	return ans

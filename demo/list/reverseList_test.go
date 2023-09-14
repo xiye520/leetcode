@@ -205,3 +205,14 @@ func ExampleSswapPairs() {
 	// 1 -> 2 -> 3 -> 4 -> 5
 	// 2 -> 1 -> 4 -> 3 -> 5
 }
+
+// 8.重排链表
+func ExampleReorderList() {
+	head := generateListNode()
+	printList(head)
+	printList(reorderList(head))
+
+	// output:
+	// 1 -> 2 -> 3 -> 4 -> 5
+	// 1 -> 5 -> 2 -> 4 -> 3
+}

@@ -7,9 +7,11 @@ package medium
 示例:
 输入:
 [
-  [1,3,1,6],
-  [1,5,1,3],
-  [4,2,1,2]
+
+	[1,3,1,6],
+	[1,5,1,3],
+	[4,2,1,2]
+
 ]
 输出: 7
 解释: 因为路径 1→3→1→1→1 的总和最小。
@@ -19,8 +21,8 @@ func minPathSum(grid [][]int) int {
 		return 0
 	}
 
-	cols := len(grid)
-	rows := len(grid[0])
+	cols := len(grid)    // 3
+	rows := len(grid[0]) // 4
 
 	dp := make([][]int, cols)
 	for i := 0; i < cols; i++ {
@@ -70,4 +72,48 @@ func minPathSum2(grid [][]int) int {
 	}
 
 	return dp[m-1][n-1]
+}
+
+func minPathSum3(grid [][]int) int {
+	if len(grid) == 0 {
+		return 0
+	}
+	cols := len(grid)
+	rows := len(grid[0])
+	dp := make([][]int, cols)
+	for i := 0; i < cols; i++ {
+		dp[i] = make([]int, rows)
+	}
+	dp[0][0] = grid[0][0]
+	for i := 1; i < cols; i++ {
+		dp[i][0] = dp[i-1][0] + grid[i][0]
+	}
+	for j := 1; j < rows; j++ {
+		dp[0][j] = dp[0][j-1] + grid[0][j]
+	}
+	for i := 1; i < cols; i++ {
+		for j := 1; j < rows; j++ {
+			dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])
+		}
+	}
+
+	return dp[cols-1][rows-1]
+}
+
+func minPathSum4(grid [][]int) int {
+	m, n := len(grid), len(grid[0])
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if i == 0 && j == 0 {
+				continue
+			} else if i == 0 {
+				grid[i][j] += grid[0][j-1]
+			} else if j == 0 {
+				grid[i][j] += grid[i-1][0]
+			} else {
+				grid[i][j] += min(grid[i-1][j], grid[i][j-1])
+			}
+		}
+	}
+	return grid[m-1][n-1]
 }
