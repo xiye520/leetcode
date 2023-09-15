@@ -44,9 +44,7 @@ func reverseBetween(head *ListNode, m int, n int) *ListNode {
 
 		cur.Next = start.Next // 更新当前节点的下一节点
 		start.Next = cur
-	}
-	for i := m; i < n; i++ {
-		end.Next, end.Next.Next, start.Next = end.Next.Next, start.Next, end.Next
+		// end.Next, end.Next.Next, start.Next = end.Next.Next, start.Next, end.Next
 	}
 
 	return dump.Next
