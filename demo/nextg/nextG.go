@@ -6,20 +6,28 @@ import (
 	"sync"
 )
 
+/*
+** 考点：maxProcs会不会上下文切换、nextG、loop var
+
+1、当wg的数量是20，因为基本上1ms就跑完了，来不及触发 10ms 的运行时强制调度
+
+2、当wg的数量增加到2000，第一个输出的永远是Y: count/2-1，剩下的就是随机输出了
+*/
 func main() {
 	runtime.GOMAXPROCS(1)
 	wg := sync.WaitGroup{}
-	wg.Add(20)
-	for i := 0; i < 10; i++ {
+	count := 20
+	wg.Add(count)
+	for i := 0; i < count/2; i++ {
 		go func() {
-			fmt.Println(" X: ", i)
+			fmt.Print(" X: ", i)
 			wg.Done()
 		}()
 	}
 
-	for i := 0; i < 10; i++ {
+	for i := 0; i < count/2; i++ {
 		go func(i int) {
-			fmt.Println(" Y: ", i)
+			fmt.Print(" Y: ", i)
 			wg.Done()
 		}(i)
 	}
