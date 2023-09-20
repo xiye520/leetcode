@@ -27,9 +27,31 @@ func quicksort1(nums []int, left, right int) {
 	}
 }
 
-func QuickSort2(nums []int) []int {
-	quicksort2(nums, 0, len(nums)-1)
-	return nums
+func QuickSort2(arr []int) []int {
+	quicksort2(arr, 0, len(arr)-1)
+	return arr
 }
 
-func quicksort2(nums []int, left, right int) {}
+func quicksort2(arr []int, left, right int) {
+	if left >= right {
+		return
+	}
+	pivot := partiton(arr, left, right)
+	quicksort2(arr, left, pivot-1)
+	quicksort2(arr, pivot+1, right)
+}
+
+func partiton(arr []int, left, right int) int {
+	key := arr[right]
+	i := left
+	for j := left; j < right; j++ {
+		if arr[j] < key {
+			arr[i], arr[j] = arr[j], arr[i]
+			i++
+		}
+
+	}
+
+	arr[i], arr[right] = arr[right], arr[i]
+	return i
+}

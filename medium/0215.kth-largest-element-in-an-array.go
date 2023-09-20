@@ -1,7 +1,6 @@
 package medium
 
 import (
-	"fmt"
 	"sort"
 )
 
@@ -24,9 +23,6 @@ https://leetcode.cn/problems/kth-largest-element-in-an-array/description/?envTyp
 
 func findKthLargest(nums []int, k int) int {
 	sort.Ints(nums)
-
-	fmt.Println(nums)
-
 	return nums[len(nums)-k]
 }
 
@@ -56,4 +52,41 @@ func quickselect(nums []int, l, r, k int) int {
 	} else {
 		return quickselect(nums, j+1, r, k)
 	}
+}
+
+func findKthLargest3(nums []int, k int) int {
+	n := len(nums)
+	return quickselect2(nums, 0, n-1, n-k)
+}
+
+func quickselect2(nums []int, left, right, k int) int {
+	if left >= right {
+		return nums[k]
+	}
+	pivot := partiton(nums, left, right)
+	if pivot == k {
+		return nums[k]
+	}
+	// 中间位置小于k，排序最右侧的数组即可
+	if pivot < k {
+		quickselect2(nums, pivot+1, right, k)
+	} else {
+		quickselect2(nums, left, pivot-1, k)
+	}
+	return nums[k]
+}
+
+func partiton(arr []int, left, right int) int {
+	key := arr[right]
+	i := left
+	for j := left; j < right; j++ {
+		if arr[j] < key {
+			arr[i], arr[j] = arr[j], arr[i]
+			i++
+		}
+
+	}
+
+	arr[i], arr[right] = arr[right], arr[i]
+	return i
 }
