@@ -1,4 +1,4 @@
-package easy
+package medium
 
 import (
 	"github.com/xiye520/leetcode/util"
